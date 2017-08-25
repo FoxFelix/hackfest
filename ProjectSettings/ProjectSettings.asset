@@ -142,6 +142,7 @@ PlayerSettings:
   resolutionScalingMode: 0
   applicationIdentifier:
     Android: ohwhatif.com.OhWHATif.gearVR
+    Standalone: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 22
   AndroidMinSdkVersion: 24
