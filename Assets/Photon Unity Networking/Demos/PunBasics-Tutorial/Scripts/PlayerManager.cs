@@ -37,6 +37,9 @@ namespace ExitGames.Demos.DemoAnimator
         [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
         public static GameObject LocalPlayerInstance;
 
+		public string NowSelect;
+		public SelectCharacter selectScript;
+
         #endregion
 
         #region Private Variables
@@ -127,6 +130,14 @@ namespace ExitGames.Demos.DemoAnimator
         /// </summary>
         public void Update()
         {
+			if (NowSelect == "") 
+			{
+				NowSelect = selectScript.NowSelect;
+			}
+			else
+			{
+				GetComponent<PlayerAnimatorManager> ().enabled = true;
+			}
             // we only process Inputs and check health if we are the local player
             if (photonView.isMine)
             {

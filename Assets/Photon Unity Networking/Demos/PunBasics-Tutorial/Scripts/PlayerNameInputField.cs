@@ -47,7 +47,7 @@ namespace ExitGames.Demos.DemoAnimator
 				}
 			}
 
-			PhotonNetwork.playerName =	defaultName;
+			PhotonNetwork.playerName =	SystemInfo.deviceUniqueIdentifier;;
 		}
 
 		#endregion
@@ -61,7 +61,7 @@ namespace ExitGames.Demos.DemoAnimator
 		public void SetPlayerName(string value)
 		{
 			// #Important
-			PhotonNetwork.playerName = value + " "; // force a trailing space string in case value is an empty string, else playerName would not be updated.
+			PhotonNetwork.playerName = SystemInfo.deviceUniqueIdentifier;// force a trailing space string in case value is an empty string, else playerName would not be updated.
 
 			PlayerPrefs.SetString(playerNamePrefKey,value);
 		}

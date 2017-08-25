@@ -80,7 +80,11 @@ namespace ExitGames.Demos.DemoAnimator
 
 		#endregion
 
-
+		void Start()
+		{
+			PhotonNetwork.playerName = SystemInfo.deviceUniqueIdentifier;
+			Connect ();
+		}
 		#region Public Methods
 
 		/// <summary>
@@ -225,7 +229,7 @@ namespace ExitGames.Demos.DemoAnimator
 
 				// #Critical
 				// Load the Room Level. 
-				PhotonNetwork.LoadLevel("PunBasics-Room for 1");
+				PhotonNetwork.LoadLevel("GameScene");
 
 			}
 		}
