@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/MasterExample.unity
+    guid: bc5b3b858a9010a46bda6d4369c49b66
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/tiltGearVRControllerExample.unity
+    guid: 606d6bee5e8901b4ebf08de0b1c6f8ce
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/controlsExample.unity
+    guid: 1e107a3d20178b44e9db6b36c3f36a76
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/firstPersonGearVRController.unity
+    guid: dca07c3ccb5dbef4d84e5d7fd2c3bea5
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/GuiNavigationExample.unity
+    guid: fb855d93a9855694793786e193657b08
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/GamepadControllerDiagnosticExample.unity
+    guid: 5a376a79250cfa94ebe90ccf5306b6a6
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/GVRcontrollerDiagnosticExample.unity
+    guid: 460ab939b18caaf418bd7a483476c664
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/bowlingExample.unity
+    guid: b9665797b3beb9b408e26a82637e125e
+  - enabled: 0
+    path: Assets/Easy Input for Gear VR/Scenes/SpecificExamples/pointerExample.unity
+    guid: 23ab3175705b11d4eb528a84417a06ae
+  - enabled: 1
+    path: Assets/DD/testFlight.unity
+    guid: 5a13a0e23de3e8e498870da487f80d35
