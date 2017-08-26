@@ -5,17 +5,20 @@ using System;
 
 namespace EasyInputVR.Misc
 {
-
+    
     [AddComponentMenu("EasyInputGearVR/Miscellaneous/InstanceController")]
     public class InstanceController : MonoBehaviour
     {
         string exc;
+        public Transform handPivot;
+        GameObject temp;
 
         // Use this for initialization
+
         void Start()
         {
             //check for and try and replace with controller prefabs
-            GameObject temp = null;
+            temp = null;
 
             Vector3 originalScale = this.transform.localScale;
             this.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -49,7 +52,8 @@ namespace EasyInputVR.Misc
             {
                 temp.transform.localScale = new Vector3(1f, 1f, 1f);
                 temp.transform.localRotation = Quaternion.identity;
-                temp.transform.localPosition = Vector3.zero;
+                //temp.transform.localPosition = Vector3.zero;
+                temp.transform.localPosition = transform.position;
                 this.GetComponent<MeshRenderer>().enabled = false;
             }
             else

@@ -60,6 +60,10 @@ public class WorkerMenu : MonoBehaviour
         // if you wanted more debug out, turn this on:
         // PhotonNetwork.logLevel = NetworkLogLevel.Full;
     }
+	public void AutoJoinRoom()
+	{
+		PhotonNetwork.JoinRandomRoom();
+	}
 
     public void OnGUI()
     {
@@ -72,6 +76,7 @@ public class WorkerMenu : MonoBehaviour
         {
             if (PhotonNetwork.connecting)
             {
+				Debug.Log ("here");
                 GUILayout.Label("Connecting to: " + PhotonNetwork.ServerAddress);
             }
             else
@@ -239,6 +244,7 @@ public class WorkerMenu : MonoBehaviour
     public void OnConnectedToMaster()
     {
         Debug.Log("As OnConnectedToMaster() got called, the PhotonServerSetting.AutoJoinLobby must be off. Joining lobby by calling PhotonNetwork.JoinLobby().");
-        PhotonNetwork.JoinLobby();
+		PhotonNetwork.JoinLobby();
+//		PhotonNetwork.JoinRandomRoom();
     }
 }

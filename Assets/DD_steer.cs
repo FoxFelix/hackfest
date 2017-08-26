@@ -13,7 +13,7 @@ using EasyInputVR.Core;
         bool brakePressed;
         float horizontal, vertical;
         float normalizeDegrees = 90f;
-        float sensitivity = 10f;
+        float sensitivity = 4f;
         Vector3 actionVectorPosition;
         Vector3 computerVector;
         public Transform mesh;
@@ -107,13 +107,14 @@ using EasyInputVR.Core;
             actionVectorPosition.z = 0f;
             actionVectorPosition.y = -vertical;
 
-            myRigidbody.AddForce(actionVectorPosition);
+            //myRigidbody.AddForce(actionVectorPosition);
             if (horizontal <= 5 && horizontal >= -5)
-                myRigidbody.AddTorque(0, horizontal *0.4f, 0);
+                myRigidbody.AddTorque(0, horizontal *0.1f, 0);
             if (horizontal > 5)
-                myRigidbody.AddTorque(0, 5 * 0.4f, 0);
+                myRigidbody.AddTorque(0, 5 * 0.1f, 0);
             if (horizontal < -5)
-                myRigidbody.AddTorque(0, -5 * 0.4f, 0);
+                myRigidbody.AddTorque(0, -5 * 0.1f, 0);
+
         }
 
         void localMotion(EasyInputVR.Core.Motion motion)

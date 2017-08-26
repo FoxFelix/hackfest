@@ -53,7 +53,7 @@ namespace ExitGames.Demos.DemoAnimator
 			// in case we started this demo with the wrong scene being active, simply load the menu scene
 			if (!PhotonNetwork.connected)
 			{
-				SceneManager.LoadScene("PunBasics-Launcher");
+				SceneManager.LoadScene("Lobby");
 
 				return;
 			}
@@ -133,7 +133,7 @@ namespace ExitGames.Demos.DemoAnimator
 		/// </summary>
 		public virtual void OnLeftRoom()
 		{
-			SceneManager.LoadScene("PunBasics-Launcher");
+			SceneManager.LoadScene("Lobby");
 		}
 
 		#endregion
@@ -163,7 +163,7 @@ namespace ExitGames.Demos.DemoAnimator
 
 			Debug.Log( "PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount ); 
 
-			PhotonNetwork.LoadLevel("PunBasics-Room for "+PhotonNetwork.room.PlayerCount);
+			PhotonNetwork.LoadLevel("GameScene");
 		}
 
 		#endregion
