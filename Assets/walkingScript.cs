@@ -5,7 +5,7 @@ using EasyInputVR.Core;
 
 public class walkingScript : MonoBehaviour
 {
-    public Camera cam;
+    //public Camera cam;
     public Transform directionTransform;
     public Transform moveTarget;
     public float speed;
@@ -57,10 +57,10 @@ public class walkingScript : MonoBehaviour
             //    vertical = (vertical > 180f) ? (vertical - 360f) : vertical;
             //}
 
-            Quaternion camRot = cam.transform.localRotation;
-            camRot.x = 0;
-            camRot.z = 0;
-            directionTransform.localRotation = camRot;
+            //Quaternion camRot = cam.transform.localRotation;
+            //camRot.x = 0;
+            //camRot.z = 0;
+            //directionTransform.localRotation = camRot;
 
             if (gasPressed)
             {
