@@ -62,7 +62,7 @@ public class walkingScript : MonoBehaviour
             //camRot.z = 0;
             //directionTransform.localRotation = camRot;
 
-            if (gasPressed)
+            if (gasPressed || Input.GetKey(KeyCode.Space))
             {
                 rb.AddForce(directionTransform.forward * speed);
                 walkSideways(myOrientation);
