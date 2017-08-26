@@ -1196,6 +1196,7 @@ GameObject:
   - component: {fileID: 114863288661176350}
   - component: {fileID: 114454405689930744}
   - component: {fileID: 114334064074244214}
+  - component: {fileID: 114810375330964274}
   m_Layer: 8
   m_Name: avatar-Li_Bai
   m_TagString: Player
@@ -2732,6 +2733,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handPivot: {fileID: 4998549709659240}
+--- !u!114 &114810375330964274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973055833916698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b869708c59ead44ec8fe44c9ff8978b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartPoint: {fileID: 0}
 --- !u!114 &114814548145312020
 MonoBehaviour:
   m_ObjectHideFlags: 1

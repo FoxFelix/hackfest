@@ -45,4 +45,7 @@ MonoBehaviour:
   - selectLee
   - selectWong
   - TaggedPlayer
+  - SetPoint1
+  - SetPoint2
+  - SetPoint3
   DisableAutoOpenWizard: 1
