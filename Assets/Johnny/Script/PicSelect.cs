@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PicSelect : MonoBehaviour {
 	public PhotonView Select;
+	public Vector3 OriginalScale;
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+	{
+		OriginalScale = gameObject.transform.localScale;
 	}
 	
 	// Update is called once per frame
@@ -14,22 +16,18 @@ public class PicSelect : MonoBehaviour {
 	{
 		
 	}
-	void OnCollisionEnter(Collision collision)
+	void OnCollisionStay(Collision collision)
 	{
-		if (collision.transform.name == "Eye Beam Left") 
+		if (collision.transform.name == "Camera") 
 		{
-			if (gameObject.transform.name == "lee") 
-			{
-				Select.RPC ("selectLee", PhotonTargets.All, false);
-			}
-			if (gameObject.transform.name == "wong") 
-			{
-				Select.RPC ("selectWong", PhotonTargets.All, false);
-			}
-			if (gameObject.transform.name == "du") 
-			{
-				Select.RPC ("selectDu", PhotonTargets.All, false);
-			}
+			gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale,new Vector3 (OriginalScale.x*1.2f, OriginalScale.y*1.2f, OriginalScale.z*1.2f),10*Time.deltaTime);
+		}
+	}
+	void OnCollisionExit(Collision collision)
+	{
+		if (collision.transform.name == "Camera") 
+		{
+			gameObject.transform.localScale = new Vector3 (OriginalScale.x, OriginalScale.y, OriginalScale.z);
 		}
 	}
 }
