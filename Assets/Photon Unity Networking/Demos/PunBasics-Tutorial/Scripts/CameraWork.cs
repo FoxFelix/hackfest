@@ -171,7 +171,8 @@ namespace ExitGames.Demos.DemoAnimator
 	        Quaternion yRotation = Quaternion.LookRotation( new Vector3( offsetToCenter.x, 0, offsetToCenter.z ) );
 
 	        Vector3 relativeOffset = Vector3.forward * distance + Vector3.down * height;
-	        cameraTransform.rotation = yRotation * Quaternion.LookRotation( relativeOffset );
+//			cameraTransform.rotation = yRotation * Quaternion.LookRotation( relativeOffset );
+			cameraTransform.rotation = gameObject.transform.rotation;
 
 	    }
 

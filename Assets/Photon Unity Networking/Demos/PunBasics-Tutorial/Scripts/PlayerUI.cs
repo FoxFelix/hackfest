@@ -133,7 +133,7 @@ namespace ExitGames.Demos.DemoAnimator
 			}
 
 			if (PlayerNameText != null) {
-				PlayerNameText.text = _target.photonView.owner.NickName;
+//				PlayerNameText.text = _target.photonView.owner.NickName;
 			}
 		}
 
