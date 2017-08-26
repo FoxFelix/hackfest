@@ -3691,7 +3691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionTransform: {fileID: 4914867090663666}
   moveTarget: {fileID: 0}
-  speed: 300
+  speed: 500
   rb: {fileID: 54507612492147120}
   mesh: {fileID: 0}
 --- !u!114 &114922550886273216
