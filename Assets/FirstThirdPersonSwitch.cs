@@ -12,6 +12,7 @@ public class FirstThirdPersonSwitch : MonoBehaviour {
     public Camera cam;
     public FlareLayer flare;
     public AudioListener audiolistner;
+    public AvatarAnimator avatarAnim;
 
 	// Use this for initialization
 	void Awake () {
@@ -32,6 +33,7 @@ public class FirstThirdPersonSwitch : MonoBehaviour {
             cam.enabled = false;
             audiolistner.enabled = false;
             flare.enabled = false;
+            avatarAnim.enabled = false;
             cam.tag = "Untagged";
             this.tag = "Team";
         }
