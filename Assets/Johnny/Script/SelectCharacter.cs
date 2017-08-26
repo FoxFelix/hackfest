@@ -7,6 +7,7 @@ public class SelectCharacter : MonoBehaviour {
 	public string NowSelect;
 	bool touchPadPressed;
 	public GameObject[] Character;
+	public PhotonView CharacterManager;
     Vector3 myOrientation = Vector3.zero;
     
     void OnEnable()
@@ -27,8 +28,9 @@ public class SelectCharacter : MonoBehaviour {
 		EasyInputHelper.On_Click -= localClickStart;
 		EasyInputHelper.On_Click -= localClickEnd;
 	}
-	void Start () {
-		
+	void Start () 
+	{
+		CharacterManager = GameObject.Find ("CharacterManager").GetComponent<PhotonView>();
 	}
 	
 	// Update is called once per frame
@@ -45,6 +47,7 @@ public class SelectCharacter : MonoBehaviour {
 		{
 			if (collision.transform.name == "lee") 
 			{
+				CharacterManager.RPC ("selectLee", PhotonTargets.All, false);
 				PhotonNetwork.Instantiate(this.Character[0].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
 				Destroy (gameObject);
 			}
