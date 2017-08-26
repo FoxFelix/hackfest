@@ -9,6 +9,7 @@ public class attack_liBai : MonoBehaviour
     Vector3 myOrientation = Vector3.zero;
     bool triggerPressed;
     public Transform handPointer;
+    bool readyToShoot = true;
 
     void OnEnable()
     {
@@ -42,19 +43,25 @@ public class attack_liBai : MonoBehaviour
             {
                 attack();
             }
+            if (triggerPressed == false)
+            {
+                readyToShoot = true;
+            }
+
         }
     }
 
     
     void attack()
     {
-        pv.RPC("fxAttackLiBai", PhotonTargets.All);
+
         RaycastHit hit;
         if (Physics.Raycast(handPointer.position, handPointer.forward, out hit, 10f))
         {
-            if (hit.transform.gameObject.layer == 10)
+            if (hit.transform.gameObject.layer == 10 && readyToShoot == true)
             {
-
+                pv.RPC("fxAttackLiBai", PhotonTargets.All);
+                readyToShoot = false;
             }
         }
     }
