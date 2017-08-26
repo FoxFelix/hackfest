@@ -25,4 +25,13 @@ public class fxManager : MonoBehaviour {
         Instantiate(liBaiAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         print("attack");
     }
+
+    [PunRPC]
+    public void fxThrow(float force)
+    {
+        GameObject thrownObject = GameObject.Instantiate(liBaiAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        var rb = thrownObject.GetComponent<Rigidbody>();
+        rb.AddForce(bulletSpawnPoint.forward * force, ForceMode.Impulse);
+        print("throw");
+    }
 }
