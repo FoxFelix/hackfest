@@ -33,6 +33,7 @@ public class FirstThirdPersonSwitch : MonoBehaviour {
             audiolistner.enabled = false;
             flare.enabled = false;
             cam.tag = "Untagged";
+            this.tag = "Team";
         }
 	}
 	
