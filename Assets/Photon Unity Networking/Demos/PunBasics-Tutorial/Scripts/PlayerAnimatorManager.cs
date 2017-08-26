@@ -43,7 +43,6 @@ namespace ExitGames.Demos.DemoAnimator
 		/// </summary>
 	    void Update () 
 	    {
-
 			// Prevent control is connected to Photon and represent the localPlayer
 	        if( photonView.isMine == false && PhotonNetwork.connected == true )
 	        {
