@@ -9,6 +9,7 @@ public class OnSelected : Photon.MonoBehaviour {
 	public GameObject leePic;
 	public GameObject wongPic;
 	public GameObject duPic;
+	public GameObject StartPoint;
 	// Use this for initialization
 	void Start () 
 	{
