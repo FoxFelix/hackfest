@@ -54,7 +54,7 @@ public class planeOrient : MonoBehaviour {
             }
 
             Quaternion newRotation = Quaternion.Euler(xAngle, rotation.eulerAngles.y, zAngle);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, newRotation, rotationDamp * Time.deltaTime);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, newRotation, 1f);
         }
 
 
