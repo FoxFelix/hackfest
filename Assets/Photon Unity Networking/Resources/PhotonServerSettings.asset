@@ -41,11 +41,8 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupItems
   - RequestForPickupTimes
-  - TaggedPlayer
-<<<<<<< HEAD
   - selectDu
   - selectLee
   - selectWong
-=======
->>>>>>> 1d0e4f1d1bbd019e07a82972aadb639f79f985e3
+  - TaggedPlayer
   DisableAutoOpenWizard: 1
