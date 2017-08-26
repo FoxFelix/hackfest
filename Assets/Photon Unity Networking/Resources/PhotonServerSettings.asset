@@ -45,4 +45,6 @@ MonoBehaviour:
   - selectLee
   - selectWong
   - TaggedPlayer
+  - attack
+  - fxAttackLiBai
   DisableAutoOpenWizard: 1
