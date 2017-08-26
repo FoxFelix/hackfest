@@ -16,9 +16,17 @@ public class SelectCharacter : MonoBehaviour {
 	}
 	void OnCollisionStay(Collision collision)
 	{
-		if (collision.transform.tag == "Character") 
+		if (collision.transform.name == "lee") 
 		{
-			NowSelect = collision.transform.name;
+			NowSelect = "lee";
+		}
+		if (collision.transform.name == "wong") 
+		{
+			NowSelect = "wong";
+		}
+		if (collision.transform.name == "du") 
+		{
+			NowSelect = "du";
 		}
 	}
 }
