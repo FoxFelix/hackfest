@@ -13,6 +13,7 @@ public class FirstThirdPersonSwitch : MonoBehaviour {
     public FlareLayer flare;
     public AudioListener audiolistner;
     public AvatarAnimator avatarAnim;
+    public attack_liBai attack_libai;
 
 	// Use this for initialization
 	void Awake () {
@@ -32,6 +33,7 @@ public class FirstThirdPersonSwitch : MonoBehaviour {
             walkingScript.enabled = false;
             cam.enabled = false;
             audiolistner.enabled = false;
+            attack_libai.enabled = false;
             flare.enabled = false;
             avatarAnim.enabled = false;
             cam.tag = "Untagged";
