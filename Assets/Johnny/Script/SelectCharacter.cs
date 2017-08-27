@@ -30,7 +30,7 @@ public class SelectCharacter : MonoBehaviour {
 	}
 	void Start () 
 	{
-		CharacterManager = GameObject.Find ("CharacterManager").GetComponent<PhotonView>();
+		
 	}
 	
 	// Update is called once per frame
@@ -47,23 +47,44 @@ public class SelectCharacter : MonoBehaviour {
 		{
 			if (collision.transform.name == "lee") 
 			{
-				CharacterManager.RPC ("selectLee", PhotonTargets.All, false);
-				PhotonNetwork.Instantiate(this.Character[0].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
-				Destroy (gameObject);
+				Invoke ("SelectLee", 0.9f);
+				GetComponent<Animator>().Play("BlackOut");
+				GetComponent<BoxCollider> ().enabled = false;
 			}
 			if (collision.transform.name == "wong") 
 			{
-				PhotonNetwork.Instantiate(this.Character[1].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
-				Destroy (gameObject);
+				Invoke ("SelectWong", 0.9f);
+				GetComponent<Animator>().Play("BlackOut");
+				GetComponent<BoxCollider> ().enabled = false;
 			}
 			if (collision.transform.name == "du") 
 			{
-				PhotonNetwork.Instantiate(this.Character[2].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
-				Destroy (gameObject);
+				Invoke ("SelectDu", 0.9f);
+				GetComponent<Animator>().Play("BlackOut");
+				GetComponent<BoxCollider> ().enabled = false;
 			}
 		}
 	}
-
+	public void SelectLee()
+	{
+		CharacterManager.RPC ("selectLee", PhotonTargets.All, false);
+		PhotonNetwork.Instantiate(this.Character[0].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
+	}
+	public void SelectWong()
+	{
+		CharacterManager.RPC ("selectWong", PhotonTargets.All, false);
+		PhotonNetwork.Instantiate(this.Character[1].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
+	}
+	public void SelectDu()
+	{
+		CharacterManager.RPC ("selectDu", PhotonTargets.All, false);
+		PhotonNetwork.Instantiate(this.Character[2].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
+	}
+	public void DestroySelf()
+	{
+        Destroy(gameObject.transform.parent.gameObject);
+		Destroy (gameObject);
+	}
     void localMotion(EasyInputVR.Core.Motion motion)
     {
         myOrientation = motion.currentOrientationEuler;
