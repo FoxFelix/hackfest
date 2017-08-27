@@ -25,8 +25,11 @@ public class Alert : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            monster.target = other.gameObject;
-            //monster.type =
+            if (monster.target == null)
+            {
+                monster.target = other.gameObject;
+                monster.Attack();
+            }
         }
     }
 }
