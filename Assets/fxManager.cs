@@ -7,6 +7,7 @@ public class fxManager : MonoBehaviour {
     PhotonView pv;
     public GameObject liBaiAttackPrefab;
     public Transform bulletSpawnPoint;
+    public PsUnit liBaiAttackEffect;
 
 
 	// Use this for initialization
@@ -23,6 +24,7 @@ public class fxManager : MonoBehaviour {
     void fxAttackLiBai()
     {
         Instantiate(liBaiAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        ParticleManager.GenerateParticle(liBaiAttackEffect, bulletSpawnPoint);
         print("attack");
     }
 

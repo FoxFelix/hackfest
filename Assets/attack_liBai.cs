@@ -31,9 +31,9 @@ public class attack_liBai : MonoBehaviour
 #endif
         EasyInputHelper.On_ClickStart += localClickStart;
         EasyInputHelper.On_ClickEnd += localClickEnd;
-        EasyInputHelper.On_ClickStart += initiateThrow;
-        EasyInputHelper.On_ClickEnd += endThrow;
-        EasyInputHelper.On_Motion += trackThrow;
+        //EasyInputHelper.On_ClickStart += initiateThrow;
+        //EasyInputHelper.On_ClickEnd += endThrow;
+        //EasyInputHelper.On_Motion += trackThrow;
     }
 
     void OnDestroy()
@@ -43,9 +43,9 @@ public class attack_liBai : MonoBehaviour
 #endif
         EasyInputHelper.On_Click -= localClickStart;
         EasyInputHelper.On_Click -= localClickEnd;
-        EasyInputHelper.On_ClickStart -= initiateThrow;
-        EasyInputHelper.On_ClickEnd -= endThrow;
-        EasyInputHelper.On_Motion -= trackThrow;
+        //EasyInputHelper.On_ClickStart -= initiateThrow;
+        //EasyInputHelper.On_ClickEnd -= endThrow;
+        //EasyInputHelper.On_Motion -= trackThrow;
     }
 
 
@@ -161,7 +161,7 @@ public class attack_liBai : MonoBehaviour
         {
             if (triggerPressed == true || Input.GetKeyDown(KeyCode.F)) 
             {
-                //attack();
+                attack();
             }
             if (triggerPressed == false)
             {

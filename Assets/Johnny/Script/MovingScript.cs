@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovingScript : MonoBehaviour {
 	public Camera Cameras;
+    public Light moonLight;
+    public float lightIntensity = 2;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,22 +18,23 @@ public class MovingScript : MonoBehaviour {
 		{
 			gameObject.transform.eulerAngles = new Vector3 (0, 0, 0);
 			Cameras.depth = 12;
+            moonLight.intensity = lightIntensity;
 		}
 		if (Input.GetKey (KeyCode.UpArrow)) 
 		{
-			gameObject.transform.Translate (Vector3.forward/5);
+			gameObject.transform.Translate (Vector3.forward/15);
 		}	
 		if (Input.GetKey (KeyCode.RightArrow)) 
 		{
-			gameObject.transform.Translate (Vector3.right/5);
+			gameObject.transform.Translate (Vector3.right/15);
 		}	
 		if (Input.GetKey (KeyCode.LeftArrow)) 
 		{
-			gameObject.transform.Translate (Vector3.left/5);
+			gameObject.transform.Translate (Vector3.left/15);
 		}	
 		if (Input.GetKey (KeyCode.DownArrow)) 
 		{
-			gameObject.transform.Translate (Vector3.back/5);
+			gameObject.transform.Translate (Vector3.back/15);
 		}	
 		if (Input.mousePosition.x < Screen.width / 5) 
 		{
