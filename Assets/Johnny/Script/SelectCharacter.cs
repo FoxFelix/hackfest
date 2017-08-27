@@ -5,10 +5,12 @@ using EasyInputVR.Core;
 
 public class SelectCharacter : MonoBehaviour {
 	public string NowSelect;
-	bool gasPressed;
+	bool touchPadPressed;
 	public GameObject[] Character;
-	// Use this for initialization
-	void OnEnable()
+	public PhotonView CharacterManager;
+    Vector3 myOrientation = Vector3.zero;
+    
+    void OnEnable()
 	{
 		#if !UNITY_EDITOR && UNITY_ANDROID
 		EasyInputHelper.On_Motion += localMotion;
@@ -26,8 +28,9 @@ public class SelectCharacter : MonoBehaviour {
 		EasyInputHelper.On_Click -= localClickStart;
 		EasyInputHelper.On_Click -= localClickEnd;
 	}
-	void Start () {
-		
+	void Start () 
+	{
+		CharacterManager = GameObject.Find ("CharacterManager").GetComponent<PhotonView>();
 	}
 	
 	// Update is called once per frame
@@ -35,31 +38,38 @@ public class SelectCharacter : MonoBehaviour {
 	{       
 		if (Input.GetKeyUp (KeyCode.S)) 
 		{
-			gasPressed = true;
+            touchPadPressed = true;
 		}
 	}
 	void OnCollisionStay(Collision collision)
 	{ 
-		if (gasPressed == true) 
+		if (touchPadPressed == true) 
 		{
 			if (collision.transform.name == "lee") 
 			{
+				CharacterManager.RPC ("selectLee", PhotonTargets.All, false);
 				PhotonNetwork.Instantiate(this.Character[0].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
 				Destroy (gameObject);
 			}
 			if (collision.transform.name == "wong") 
 			{
-				PhotonNetwork.Instantiate(this.Character[0].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
+				PhotonNetwork.Instantiate(this.Character[1].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
 				Destroy (gameObject);
 			}
 			if (collision.transform.name == "du") 
 			{
-				PhotonNetwork.Instantiate(this.Character[0].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
+				PhotonNetwork.Instantiate(this.Character[2].name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
 				Destroy (gameObject);
 			}
 		}
 	}
-	void localClickStart(ButtonClick button)
+
+    void localMotion(EasyInputVR.Core.Motion motion)
+    {
+        myOrientation = motion.currentOrientationEuler;
+    }
+
+    void localClickStart(ButtonClick button)
 	{
 		//if (button.button == EasyInputConstants.CONTROLLER_BUTTON.GearVRTouchClick)
 		//{
@@ -67,7 +77,7 @@ public class SelectCharacter : MonoBehaviour {
 		//}
 		if (button.button == EasyInputConstants.CONTROLLER_BUTTON.GearVRTouchClick)
 		{
-			gasPressed = true;
+            touchPadPressed = true;
 		}
 	}
 
@@ -79,7 +89,7 @@ public class SelectCharacter : MonoBehaviour {
 		//}
 		if (button.button == EasyInputConstants.CONTROLLER_BUTTON.GearVRTouchClick)
 		{
-			gasPressed = false;
+            touchPadPressed = false;
 		}
 	}
 }
