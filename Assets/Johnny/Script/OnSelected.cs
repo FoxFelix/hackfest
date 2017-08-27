@@ -9,6 +9,9 @@ public class OnSelected : Photon.MonoBehaviour {
 	public GameObject leePic;
 	public GameObject wongPic;
 	public GameObject duPic;
+	public GameObject leeCharacter;
+	public GameObject wongCharacter;
+	public GameObject duCharacter;
 	public GameObject StartPoint;
 	// Use this for initialization
 	void Start () 
@@ -36,15 +39,18 @@ public class OnSelected : Photon.MonoBehaviour {
 	public void selectLee(bool open)
 	{
 		leePic.SetActive (open);
+		leeCharacter.SetActive (open);
 	}
 	[PunRPC]
 	public void selectWong(bool open)
 	{
 		wongPic.SetActive (open);
+		wongCharacter.SetActive (open);
 	}
 	[PunRPC]
 	public void selectDu(bool open)
 	{
 		duPic.SetActive (open);
+		duCharacter.SetActive (open);
 	}
 }
