@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestGeneratePs : MonoBehaviour 
+public class AttackSkillTest : MonoBehaviour 
 {
-    private Vector3 pos = new Vector3(0,0,0);
+    private Vector3 pos = new Vector3(0, 0, 0);
     public Transform ts;
     public ResourceEffect m_RsEffect = null;
 
-	void Start () 
+    void Start()
     {
-	}
+    }
 
-	void Update () 
+    void Update()
     {
-		if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //Debug.Log("Generate Ps");
             ParticleManager.GenerateParticle(m_RsEffect.m_Effect[0], ts);
@@ -67,5 +67,5 @@ public class TestGeneratePs : MonoBehaviour
             //Debug.Log("Generate Ps");
             ParticleManager.GenerateParticle(m_RsEffect.m_Effect[8], ts);
         }
-	}
+    }
 }

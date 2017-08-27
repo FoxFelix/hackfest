@@ -19,6 +19,8 @@ public class ParticleManager : MonoBehaviour
 
         if (objFromPool != null)
         {
+            objFromPool.Reset(player);
+
             //Set pos & rotate
             objFromPool.transform.position = player.position;
             objFromPool.transform.rotation = player.rotation;
