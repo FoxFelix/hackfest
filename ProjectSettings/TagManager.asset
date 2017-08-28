@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Beam
   - Character
+  - Weaton
+  - Magic
   layers:
   - Default
   - TransparentFX

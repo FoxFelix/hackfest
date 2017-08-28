@@ -16533,6 +16533,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38366353e9473401f90e5d007cdeca6d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &955625590 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1270790652246416, guid: 23f0fb61d1b2b490fbb09a68febf0f9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1861452525}
+--- !u!136 &955625596
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 955625590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 19.634624
+  m_Height: 127.58799
+  m_Direction: 1
+  m_Center: {x: 0.32950464, y: 50.749725, z: 2.3291845}
 --- !u!4 &958464430 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 7f2e3ccff64854791b2ca753e323c458, type: 2}
@@ -22829,7 +22847,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1310847722}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2.2392635
@@ -29044,7 +29062,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100134, guid: ef4f438eb9f33d440a3a1a3bad35664a, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Magic
       objectReference: {fileID: 0}
     - target: {fileID: 100134, guid: ef4f438eb9f33d440a3a1a3bad35664a, type: 3}
       propertyPath: m_IsActive
@@ -32319,6 +32337,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114050237967524080, guid: 23f0fb61d1b2b490fbb09a68febf0f9d,
+        type: 2}
+      propertyPath: m_SynchronizeParameters.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4486462851262086, guid: 23f0fb61d1b2b490fbb09a68febf0f9d, type: 2}
       propertyPath: m_LocalPosition.x
       value: -13.41
@@ -32371,7 +32394,18 @@ Prefab:
       propertyPath: instantiationId
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114050237967524080, guid: 23f0fb61d1b2b490fbb09a68febf0f9d,
+        type: 2}
+      propertyPath: m_SynchronizeParameters.Array.data[6].Type
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050237967524080, guid: 23f0fb61d1b2b490fbb09a68febf0f9d,
+        type: 2}
+      propertyPath: m_SynchronizeParameters.Array.data[6].Name
+      value: Death
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 136759326348270128, guid: 23f0fb61d1b2b490fbb09a68febf0f9d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 23f0fb61d1b2b490fbb09a68febf0f9d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1861823811
