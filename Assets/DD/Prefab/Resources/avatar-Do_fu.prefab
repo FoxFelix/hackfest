@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4301081473349220}
   - component: {fileID: 65227781504495558}
-  - component: {fileID: 54081211742383188}
+  - component: {fileID: 54650241585139140}
   m_Layer: 8
   m_Name: collider
   m_TagString: Weapon
@@ -2606,7 +2606,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1773762683541870}
   m_Mesh: {fileID: 4300000, guid: 85c09495f75c6f14a8f58a835799f141, type: 3}
---- !u!54 &54081211742383188
+--- !u!54 &54650241585139140
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2617,7 +2617,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2643,7 +2643,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080294849910660}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.7}

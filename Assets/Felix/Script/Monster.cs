@@ -122,7 +122,7 @@ public class Monster : MonoBehaviour
         time += Time.deltaTime;
     }
 
-    void OnTriggerEnter(Collider other)
+    public void TriggerEvent(Collider other)
     {
         target = other.gameObject;
         if (other.tag == "Magic")
@@ -142,6 +142,12 @@ public class Monster : MonoBehaviour
                 Destroy(Detath, 5f);
             }
         }
-
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        TriggerEvent(other);
+    }
+
+
 }

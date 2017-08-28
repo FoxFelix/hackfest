@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 136759326348270128}
   - component: {fileID: 114000290735787406}
   - component: {fileID: 114393289748006400}
+  - component: {fileID: 114307013307797448}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -331,6 +332,8 @@ GameObject:
   - component: {fileID: 114724383296512564}
   - component: {fileID: 114050237967524080}
   - component: {fileID: 114747515026733908}
+  - component: {fileID: 114300342994912692}
+  - component: {fileID: 65451230376197804}
   m_Layer: 0
   m_Name: Minotaur
   m_TagString: Untagged
@@ -1456,8 +1459,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018832012823678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.41, y: 0.07, z: 4.99}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.98, y: 0.07, z: 42.06}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4069197856376784}
   - {fileID: 4893789382571078}
@@ -2093,6 +2096,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65451230376197804
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270790652246416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 110, z: 30}
+  m_Center: {x: 0, y: 55, z: 0}
 --- !u!81 &81690053010944042
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2219,8 +2234,11 @@ MonoBehaviour:
     SynchronizeType: 0
     Name: GetHit
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Shout
+  - Type: 9
+    SynchronizeType: 0
+    Name: Death
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -2236,6 +2254,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114724383296512564}
+--- !u!114 &114300342994912692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270790652246416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf46661377de634897cd2d6bdea8c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossScript: {fileID: 114724383296512564}
+  boliScript: {fileID: 0}
+--- !u!114 &114307013307797448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1018832012823678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf46661377de634897cd2d6bdea8c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossScript: {fileID: 114724383296512564}
+  boliScript: {fileID: 0}
 --- !u!114 &114393289748006400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2278,11 +2322,11 @@ MonoBehaviour:
   target: {fileID: 0}
   agent: {fileID: 195566148073916054}
   patrolPath:
-  - {x: -13.72309, y: 0.07, z: 4.99}
-  - {x: -15.67524, y: 0.07, z: -3.49}
-  - {x: 8.6, y: 0.07, z: 8.92}
-  attackRange: 0.5
-  Speed: 1.6
+  - {x: -5.98, y: 0.07, z: 42.06}
+  - {x: -8.96, y: 0.07, z: 32.53}
+  - {x: -2.73, y: 0.07, z: 37.38}
+  attackRange: 2
+  Speed: 3
   attackTime: 2
   alert: {fileID: 135913876040021074}
   Detath: {fileID: 0}
