@@ -103,7 +103,7 @@ public class RFX4_TransformMotion : MonoBehaviour
                 t.position = hit.point;
                 oldPos = t.position;
                 OnCollisionBehaviour(hit);
-                OnCollisionDeactivateBehaviour(false);
+//                OnCollisionDeactivateBehaviour(false);
                 return;
             }
         }
@@ -124,6 +124,7 @@ public class RFX4_TransformMotion : MonoBehaviour
 
     void OnCollisionBehaviour(RaycastHit hit)
     {
+		print ("hit");
         var handler = CollisionEnter;
         if (handler != null)
             handler(this, new RFX4_CollisionInfo {Hit = hit});

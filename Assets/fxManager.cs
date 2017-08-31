@@ -16,14 +16,15 @@ public class fxManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 	}
 
     [PunRPC]
     void fxAttackLiBai()
     {
-        Instantiate(liBaiAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+//        Instantiate(liBaiAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         ParticleManager.GenerateParticle(liBaiAttackEffect, bulletSpawnPoint);
         print("attack");
     }
