@@ -14,122 +14,180 @@ public class Monster : MonoBehaviour
     public float attackRange = 0.5f;
     public float Speed = 1.5f;
     public float attackTime;
-    public Collider alert;
-    public GameObject Detath;
 
-    private enum Types { NONE, ATTACK, PATROL, DONMOVE, RUNAWAY }
-    private Types type;
-    private int patrolPoint = 1;
-    private float time;
+    public enum Type { NONE, Fight, PATROL, DONMOVE, RUNAWAY }
+    public Type type;
+    private int patrolPoint;
+    private float maxAttackTime;
     private float donMoveTime = 1.5f;
 
     // Use this for initialization
     void Start()
     {
-        //agent.autoBraking = false;
-        agent.isStopped = true;
-        agent.speed = Speed;
-        type = Types.NONE;
+        agent.autoBraking = false;
+        maxAttackTime = attackTime;
     }
 
-    public void GoToNextPoint()
-    {
-        if (patrolPath.Length == 0)
-        {
-            return;
-        }
-        animator.SetBool("Walk", true);
-        agent.isStopped = false;
-        agent.SetDestination(patrolPath[patrolPoint]);
-        // 當巡邏一圈後會回到原來的點
-        patrolPoint = (patrolPoint + 1) % patrolPath.Length;
-        type = Types.PATROL;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         switch (type)
         {
-            case Types.ATTACK:
-                CheckAttack();
+            case Type.Fight:
+                Fight();
                 break;
-            case Types.PATROL:
+            case Type.PATROL:
                 CheckPatrol();
                 break;
-            case Types.DONMOVE:
+            case Type.DONMOVE:
                 CheckNoMove();
+                break;
+            default:
                 break;
         }
     }
 
-    public void Attack()
+    private void Move()
     {
-        agent.SetDestination(target.transform.position);
-        agent.speed = Speed * 1.5f;
-        type = Types.ATTACK;
-    }
-    private void CheckAttack()
-    {
+        agent.isStopped = false;
         if (target != null)
         {
+            agent.angularSpeed = 160;
+            agent.speed = Speed * 1.5f;
+            animator.SetBool("Walk", false);
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            agent.angularSpeed = 120;
+            agent.speed = Speed;
+            animator.SetBool("Walk", true);
+            animator.SetBool("Run", false);
+        }
+    }
+
+    private void Stop()
+    {
+        agent.isStopped = true;
+        animator.SetBool("Walk", false);
+        animator.SetBool("Run", false);
+    }
+
+    private void Fight()
+    {
+        maxAttackTime += Time.deltaTime;
+        if (target != null)
+        {
+            agent.SetDestination(target.transform.position);
             Debug.Log(agent.remainingDistance);
-            //如果能够得着了，就停下攻击
+            // 如果能够得着了，就停下攻击
             if (agent.remainingDistance <= attackRange)
             {
-                Debug.Log("nono!!");
-                if (time >= attackTime)
+                // 攻擊速度最短時間以動畫長度為主
+                AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+                if ((maxAttackTime >= attackTime) && (!info.IsName("Attack")))
                 {
-                    agent.isStopped = true;
-                    animator.SetBool("Run", false);
+                    Debug.Log("Attack...");
+                    Stop();
                     animator.SetTrigger("Attack");
-                    time = 0;
+                    maxAttackTime = 0;
                 }
-                time += Time.deltaTime;
             }
             else
             {
-                agent.SetDestination(target.transform.position);
-                agent.isStopped = false;
-                animator.SetBool("Run", true);
+                Move();
             }
         }
         else
         {
-            agent.speed = Speed;
-            agent.isStopped = true;
-            animator.SetBool("Rum", false);
+            Stop();
+            maxAttackTime = attackTime;
+            type = Type.NONE;
         }
+    }
+
+
+
+    public void Platrol()
+    {
+        Debug.Log("Platrol...");
+
+        if (patrolPath.Length == 0)
+        {
+            return;
+        }
+
+        // 當巡邏一圈後會回到原來的點
+        patrolPoint = (patrolPoint + 1) % patrolPath.Length;
+        agent.SetDestination(patrolPath[patrolPoint]);
+        type = Type.PATROL;
     }
 
     private void CheckPatrol()
     {
         if (agent.remainingDistance <= 0.5f)
         {
-            agent.isStopped = true;
-            animator.SetBool("Walk", false);
-            type = Types.NONE;
+            Stop();
+            type = Type.NONE;
         }
+        else
+        {
+            Move();
+        }
+    }
+
+    private void GetDoFu()
+    {
+
+    }
+
+    private void GetLiBai()
+    {
+
+    }
+
+    private void GetWangWei()
+    {
+
     }
 
     public virtual void CheckNoMove()
     {
-        if (time >= donMoveTime)
+        /*if (time >= donMoveTime)
         {
             agent.isStopped = true;
         }
 
-        time += Time.deltaTime;
+        time += Time.deltaTime;*/
     }
 
-    public void TriggerEvent(Collider other)
+    public void OnTriggerEvent(Collider other)
     {
-        target = other.gameObject;
+        if (other.tag == "Player")
+        {
+            Debug.Log("Fight...");
+            target = other.gameObject;
+            agent.SetDestination(target.transform.position);
+            type = Type.Fight;
+        }
+        else if (other.tag == "Do_Fu")
+        {
+            GetDoFu();
+        }
+        else if (other.tag == "Li_Bai")
+        {
+            GetLiBai();
+        }
+        else if (other.tag == "Wang_Wei")
+        {
+            GetWangWei();
+        }
+
+        /*target = other.gameObject;
         if (other.tag == "Magic")
         {
             agent.isStopped = true;
             animator.SetTrigger("Shout");
-            type = Types.DONMOVE;
+            type = Type.DONMOVE;
             time = 0;
         }
         else if (other.tag == "Weaton")
@@ -139,14 +197,14 @@ public class Monster : MonoBehaviour
             if (HP == 0)
             {
                 animator.SetTrigger("Death1");
-                Destroy(Detath, 5f);
+                //Destroy(Detath, 5f);
             }
-        }
+        }*/
     }
 
     void OnTriggerEnter(Collider other)
     {
-        TriggerEvent(other);
+        OnTriggerEvent(other);
     }
 
 

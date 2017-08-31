@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimEvent : MonoBehaviour
 {
-    public Boss boss;
+    //public Boss boss;
     // Use this for initialization
     void Start()
     {
@@ -19,6 +19,6 @@ public class AnimEvent : MonoBehaviour
 
     public void CallGoToNextPoint()
     {
-        boss.GoToNextPoint();
+        //boss.GoToNextPoint();
     }
 }

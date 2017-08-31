@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : Monster
-{
+public class Boss : Monster {
 
 }
