@@ -14,13 +14,15 @@ public class Monster : MonoBehaviour
     public float attackRange = 0.5f;
     public float Speed = 1.5f;
     public float attackTime;
-
     public GameObject destroyObj;
+    public Collider alert;
 
     private enum Type { NONE, Fight, PATROL, DONMOVE, RUNAWAY }
     private Type type;
     private int patrolPoint;
     private float maxAttackTime;
+
+    private List<GameObject> targets = new List<GameObject>();
 
     // Use this for initialization
     void Start()
@@ -37,7 +39,7 @@ public class Monster : MonoBehaviour
                 Fight();
                 break;
             case Type.PATROL:
-                CheckPatrol();
+                StartPatrol();
                 break;
             default:
                 break;
@@ -87,6 +89,7 @@ public class Monster : MonoBehaviour
                     Debug.Log("Attack...");
                     Stop();
                     animator.SetTrigger("Attack");
+                    SetTarget();
                     maxAttackTime = 0;
                 }
             }
@@ -103,8 +106,6 @@ public class Monster : MonoBehaviour
         }
     }
 
-
-
     public void Platrol()
     {
         Debug.Log("Platrol...");
@@ -120,7 +121,7 @@ public class Monster : MonoBehaviour
         type = Type.PATROL;
     }
 
-    private void CheckPatrol()
+    private void StartPatrol()
     {
         if (agent.remainingDistance <= 0.5f)
         {
@@ -131,6 +132,11 @@ public class Monster : MonoBehaviour
         {
             Move();
         }
+    }
+
+    private void CloseCollider()
+    {
+
     }
 
     public virtual void GetDoFu()
@@ -150,13 +156,23 @@ public class Monster : MonoBehaviour
 
     private void Attacked()
     {
-
         HP = HP - 1;
         animator.SetTrigger("GetHit");
-        if (HP == 0)
+        animator.SetInteger("HP", HP);
+    }
+
+    public void CallDestroy()
+    {
+        Destroy(destroyObj, 5);
+    }
+
+    private void SetTarget()
+    {
+        if (targets != null)
         {
-            animator.SetInteger("HP", HP);
-            Destroy(destroyObj, 5);
+            Random.InitState(System.Guid.NewGuid().GetHashCode());
+            int ran = Random.Range(1, targets.Count);
+            target = targets[ran - 1];
         }
     }
 
@@ -164,6 +180,7 @@ public class Monster : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            targets.Add(other.gameObject);
             if (target == null)
             {
                 Debug.Log("Fight...");
@@ -174,8 +191,17 @@ public class Monster : MonoBehaviour
         }
     }
 
+    public void FightExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            targets.Remove(other.gameObject);
+        }
+    }
+
     public void OnTriggerEvent(Collider other)
     {
+        Stop();
         if (other.tag == "Do_Fu")
         {
             GetDoFu();

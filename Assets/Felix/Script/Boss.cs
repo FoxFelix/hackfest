@@ -17,6 +17,19 @@ public class Boss : Monster
     public DeBuff deBuff;
     public override void Update()
     {
+        Collider body = GetComponent<Collider>();
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        if ((info.IsName("GetHit")) || (info.IsName("Shout")) || (info.IsName("Death1")))
+        {
+            body.enabled = false;
+            alert.enabled = false;
+            return;
+        }
+        else
+        {
+            body.enabled = true;
+            alert.enabled = true;
+        }
         base.Update();
     }
     public override void GetDoFu()
@@ -57,6 +70,7 @@ public class Boss : Monster
         if (deBuff == DeBuff.BREAKOUT)
         {
             base.GetWangWei();
+            deBuff = DeBuff.NONE;
         }
         else if (deBuff == (DeBuff.DOFU | DeBuff.LIBAI))
         {

@@ -9,4 +9,9 @@ public class Alert : MonoBehaviour
     {
         monster.FightEnter(other);
     }
+
+    void OnTriggerExit(Collider other)
+    {
+        monster.FightExit(other);
+    }
 }
