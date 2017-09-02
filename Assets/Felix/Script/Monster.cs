@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
-    public int HP;
+    public int HP = 1;
     public Animator animator;
     public GameObject target;
     public NavMeshAgent agent;
@@ -15,11 +15,12 @@ public class Monster : MonoBehaviour
     public float Speed = 1.5f;
     public float attackTime;
 
-    public enum Type { NONE, Fight, PATROL, DONMOVE, RUNAWAY }
-    public Type type;
+    public GameObject destroyObj;
+
+    private enum Type { NONE, Fight, PATROL, DONMOVE, RUNAWAY }
+    private Type type;
     private int patrolPoint;
     private float maxAttackTime;
-    private float donMoveTime = 1.5f;
 
     // Use this for initialization
     void Start()
@@ -28,7 +29,7 @@ public class Monster : MonoBehaviour
         maxAttackTime = attackTime;
     }
 
-    void Update()
+    public virtual void Update()
     {
         switch (type)
         {
@@ -37,9 +38,6 @@ public class Monster : MonoBehaviour
                 break;
             case Type.PATROL:
                 CheckPatrol();
-                break;
-            case Type.DONMOVE:
-                CheckNoMove();
                 break;
             default:
                 break;
@@ -135,41 +133,50 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void GetDoFu()
+    public virtual void GetDoFu()
     {
 
     }
 
-    private void GetLiBai()
+    public virtual void GetLiBai()
     {
 
     }
 
-    private void GetWangWei()
+    public virtual void GetWangWei()
     {
-
+        Attacked();
     }
 
-    public virtual void CheckNoMove()
+    private void Attacked()
     {
-        /*if (time >= donMoveTime)
+
+        HP = HP - 1;
+        animator.SetTrigger("GetHit");
+        if (HP == 0)
         {
-            agent.isStopped = true;
+            animator.SetInteger("HP", HP);
+            Destroy(destroyObj, 5);
         }
+    }
 
-        time += Time.deltaTime;*/
+    public void FightEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (target == null)
+            {
+                Debug.Log("Fight...");
+                target = other.gameObject;
+                agent.SetDestination(target.transform.position);
+                type = Type.Fight;
+            }
+        }
     }
 
     public void OnTriggerEvent(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            Debug.Log("Fight...");
-            target = other.gameObject;
-            agent.SetDestination(target.transform.position);
-            type = Type.Fight;
-        }
-        else if (other.tag == "Do_Fu")
+        if (other.tag == "Do_Fu")
         {
             GetDoFu();
         }
@@ -181,25 +188,6 @@ public class Monster : MonoBehaviour
         {
             GetWangWei();
         }
-
-        /*target = other.gameObject;
-        if (other.tag == "Magic")
-        {
-            agent.isStopped = true;
-            animator.SetTrigger("Shout");
-            type = Type.DONMOVE;
-            time = 0;
-        }
-        else if (other.tag == "Weaton")
-        {
-            animator.SetTrigger("GetHit");
-            HP -= 1;
-            if (HP == 0)
-            {
-                animator.SetTrigger("Death1");
-                //Destroy(Detath, 5f);
-            }
-        }*/
     }
 
     void OnTriggerEnter(Collider other)
