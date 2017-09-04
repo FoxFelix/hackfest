@@ -192,7 +192,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.47010309
+        functionName: BossPlayFootStep
+        data: 
+        objectReferenceParameter: {fileID: 1018832012823678, guid: 23f0fb61d1b2b490fbb09a68febf0f9d,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.95670104
+        functionName: BossPlayFootStep
+        data: 
+        objectReferenceParameter: {fileID: 1018832012823678, guid: 23f0fb61d1b2b490fbb09a68febf0f9d,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
