@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSetting : MonoBehaviour {
-	public GameObject StartPoint;
+	public GameObject Model;
+	public Vector3 StartPos;
 	// Use this for initialization
 	void Start () 
 	{
-		StartPoint = GameObject.Find ("StartPoint");
-		gameObject.transform.position = StartPoint.transform.position;	
-		StartPoint.transform.position = new Vector3 (StartPoint.transform.position.x+1.5f,StartPoint.transform.position.y,StartPoint.transform.position.z);
+		gameObject.transform.position = StartPos;
+		if (GetComponent<PhotonView> ().isMine) 
+		{
+			Model.SetActive (false);
+		}
 	}
 	
 	// Update is called once per frame
