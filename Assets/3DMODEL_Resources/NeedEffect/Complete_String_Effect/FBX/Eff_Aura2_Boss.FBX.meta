@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ded98e406cfb488ca40ce2f346b7a6c
+guid: 344d66f053a88414c9ff3d1f022e01f2
 timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 21
@@ -37,7 +37,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.01
+    globalScale: 0.015
     meshCompression: 2
     addColliders: 0
     importVisibility: 0
