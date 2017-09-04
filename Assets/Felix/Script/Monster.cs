@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
-    public int HP;
+    public int HP = 1;
     public Animator animator;
     public GameObject target;
     public NavMeshAgent agent;
@@ -14,139 +14,211 @@ public class Monster : MonoBehaviour
     public float attackRange = 0.5f;
     public float Speed = 1.5f;
     public float attackTime;
+    public GameObject destroyObj;
     public Collider alert;
-    public GameObject Detath;
 
-    private enum Types { NONE, ATTACK, PATROL, DONMOVE, RUNAWAY }
-    private Types type;
-    private int patrolPoint = 1;
-    private float time;
-    private float donMoveTime = 1.5f;
+    private enum Type { NONE, Fight, PATROL, DONMOVE, RUNAWAY }
+    private Type type;
+    private int patrolPoint;
+    private float maxAttackTime;
+
+    private List<GameObject> targets = new List<GameObject>();
 
     // Use this for initialization
     void Start()
     {
-        //agent.autoBraking = false;
-        agent.isStopped = true;
-        agent.speed = Speed;
-        type = Types.NONE;
+        agent.autoBraking = false;
+        maxAttackTime = attackTime;
     }
 
-    public void GoToNextPoint()
-    {
-        if (patrolPath.Length == 0)
-        {
-            return;
-        }
-        animator.SetBool("Walk", true);
-        agent.isStopped = false;
-        agent.SetDestination(patrolPath[patrolPoint]);
-        // 當巡邏一圈後會回到原來的點
-        patrolPoint = (patrolPoint + 1) % patrolPath.Length;
-        type = Types.PATROL;
-    }
-
-    // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         switch (type)
         {
-            case Types.ATTACK:
-                CheckAttack();
+            case Type.Fight:
+                Fight();
                 break;
-            case Types.PATROL:
-                CheckPatrol();
+            case Type.PATROL:
+                StartPatrol();
                 break;
-            case Types.DONMOVE:
-                CheckNoMove();
+            default:
                 break;
         }
     }
 
-    public void Attack()
+    private void Move()
     {
-        agent.SetDestination(target.transform.position);
-        agent.speed = Speed * 1.5f;
-        type = Types.ATTACK;
-    }
-    private void CheckAttack()
-    {
+        agent.isStopped = false;
         if (target != null)
         {
+            agent.angularSpeed = 160;
+            agent.speed = Speed * 1.5f;
+            animator.SetBool("Walk", false);
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            agent.angularSpeed = 120;
+            agent.speed = Speed;
+            animator.SetBool("Walk", true);
+            animator.SetBool("Run", false);
+        }
+    }
+
+    private void Stop()
+    {
+        agent.isStopped = true;
+        animator.SetBool("Walk", false);
+        animator.SetBool("Run", false);
+    }
+
+    private void Fight()
+    {
+        maxAttackTime += Time.deltaTime;
+        if (target != null)
+        {
+            agent.SetDestination(target.transform.position);
             Debug.Log(agent.remainingDistance);
-            //如果能够得着了，就停下攻击
+            // 如果能够得着了，就停下攻击
             if (agent.remainingDistance <= attackRange)
             {
-                Debug.Log("nono!!");
-                if (time >= attackTime)
+                // 攻擊速度最短時間以動畫長度為主
+                AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+                if ((maxAttackTime >= attackTime) && (!info.IsName("Attack")))
                 {
-                    agent.isStopped = true;
-                    animator.SetBool("Run", false);
+                    Debug.Log("Attack...");
+                    Stop();
                     animator.SetTrigger("Attack");
-                    time = 0;
+                    SetTarget();
+                    maxAttackTime = 0;
                 }
-                time += Time.deltaTime;
             }
             else
             {
-                agent.SetDestination(target.transform.position);
-                agent.isStopped = false;
-                animator.SetBool("Run", true);
+                Move();
             }
         }
         else
         {
-            agent.speed = Speed;
-            agent.isStopped = true;
-            animator.SetBool("Rum", false);
+            Stop();
+            maxAttackTime = attackTime;
+            type = Type.NONE;
         }
     }
 
-    private void CheckPatrol()
+    public void Platrol()
+    {
+        Debug.Log("Platrol...");
+
+        if (patrolPath.Length == 0)
+        {
+            return;
+        }
+
+        // 當巡邏一圈後會回到原來的點
+        patrolPoint = (patrolPoint + 1) % patrolPath.Length;
+        agent.SetDestination(patrolPath[patrolPoint]);
+        type = Type.PATROL;
+    }
+
+    private void StartPatrol()
     {
         if (agent.remainingDistance <= 0.5f)
         {
-            agent.isStopped = true;
-            animator.SetBool("Walk", false);
-            type = Types.NONE;
+            Stop();
+            type = Type.NONE;
+        }
+        else
+        {
+            Move();
         }
     }
 
-    public virtual void CheckNoMove()
+    private void CloseCollider()
     {
-        if (time >= donMoveTime)
-        {
-            agent.isStopped = true;
-        }
 
-        time += Time.deltaTime;
     }
 
-    public void TriggerEvent(Collider other)
+    public virtual void GetDoFu()
     {
-        target = other.gameObject;
-        if (other.tag == "Magic")
+
+    }
+
+    public virtual void GetLiBai()
+    {
+
+    }
+
+    public virtual void GetWangWei()
+    {
+        Attacked();
+    }
+
+    private void Attacked()
+    {
+        HP = HP - 1;
+        animator.SetTrigger("GetHit");
+        animator.SetInteger("HP", HP);
+    }
+
+    public void CallDestroy()
+    {
+        Destroy(destroyObj, 5);
+    }
+
+    private void SetTarget()
+    {
+        if (targets != null)
         {
-            agent.isStopped = true;
-            animator.SetTrigger("Shout");
-            type = Types.DONMOVE;
-            time = 0;
+            Random.InitState(System.Guid.NewGuid().GetHashCode());
+            int ran = Random.Range(1, targets.Count);
+            target = targets[ran - 1];
         }
-        else if (other.tag == "Weaton")
+    }
+
+    public void FightEnter(Collider other)
+    {
+        if (other.tag == "Player")
         {
-            animator.SetTrigger("GetHit");
-            HP -= 1;
-            if (HP == 0)
+            targets.Add(other.gameObject);
+            if (target == null)
             {
-                animator.SetTrigger("Death1");
-                Destroy(Detath, 5f);
+                Debug.Log("Fight...");
+                target = other.gameObject;
+                agent.SetDestination(target.transform.position);
+                type = Type.Fight;
             }
+        }
+    }
+
+    public void FightExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            targets.Remove(other.gameObject);
+        }
+    }
+
+    public void OnTriggerEvent(Collider other)
+    {
+        Stop();
+        if (other.tag == "Do_Fu")
+        {
+            GetDoFu();
+        }
+        else if (other.tag == "Li_Bai")
+        {
+            GetLiBai();
+        }
+        else if (other.tag == "Wang_Wei")
+        {
+            GetWangWei();
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        TriggerEvent(other);
+        OnTriggerEvent(other);
     }
 
 

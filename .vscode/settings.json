@@ -1,4 +1,9 @@
 {
+	"files.associations":
+	{
+		"*.bjs":"javascript",
+		"*.javascript":"javascript"
+	},
 	"files.exclude":
 	{
 		"**/.DS_Store":true,
@@ -7,6 +12,9 @@
 		"**/.gitattributes":true,
 		"**/.gitmodules":true,
 		"**/.svn":true,
+		"**/*.zip":true,
+		"**/*.gz":true,
+		"**/*.7z":true,
 		"**/*.booproj":true,
 		"**/*.pidb":true,
 		"**/*.suo":true,
@@ -16,9 +24,12 @@
 		"**/*.dll":true,
 		"**/*.exe":true,
 		"**/*.pdf":true,
+		"**/*.mp4":true,
 		"**/*.mid":true,
 		"**/*.midi":true,
 		"**/*.wav":true,
+		"**/*.mp3":true,
+		"**/*.ogg":true,
 		"**/*.gif":true,
 		"**/*.ico":true,
 		"**/*.jpg":true,
@@ -28,6 +39,8 @@
 		"**/*.tga":true,
 		"**/*.tif":true,
 		"**/*.tiff":true,
+		"**/*.hdr":true,
+		"**/*.exr":true,
 		"**/*.3ds":true,
 		"**/*.3DS":true,
 		"**/*.fbx":true,
@@ -45,6 +58,8 @@
 		"**/*.meta":true,
 		"**/*.prefab":true,
 		"**/*.unity":true,
+		"**/*.anim":true,
+		"**/*.controller":true,
 		"build/":true,
 		"Build/":true,
 		"Library/":true,
