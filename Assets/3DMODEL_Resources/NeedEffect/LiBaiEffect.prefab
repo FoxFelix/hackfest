@@ -224,7 +224,7 @@ MonoBehaviour:
   TimeDelay: 0
   CollidesWith:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294964680
   EffectsOnCollision:
   - {fileID: 1284922049417826, guid: 72648e9b3d0df4e708f73a5668181356, type: 2}
   CollisionOffset: 0
@@ -363,7 +363,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 744910230
+  randomSeed: 176941238
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3481,7 +3481,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1042395089
+  randomSeed: 377919215
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6931,7 +6931,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143162}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3

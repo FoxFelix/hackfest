@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 114417055154591244}
   - component: {fileID: 114958358292286462}
   - component: {fileID: 114800656728553948}
+  - component: {fileID: 114088496601873124}
   m_Layer: 8
   m_Name: avatar-Do_fu
   m_TagString: Player
@@ -2357,8 +2358,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442051037479760}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3, y: 0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4490300247096388}
@@ -2907,6 +2908,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4490300247096388}
+--- !u!114 &114088496601873124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442051037479760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b869708c59ead44ec8fe44c9ff8978b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Model: {fileID: 1790052617571762}
+  StartPos: {x: -3, y: 0.35, z: 0}
 --- !u!114 &114208876124775552
 MonoBehaviour:
   m_ObjectHideFlags: 1
