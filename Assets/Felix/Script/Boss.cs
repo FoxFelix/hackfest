@@ -32,6 +32,11 @@ public class Boss : Monster
         }
         base.Update();
     }
+
+    public void Attack()
+    {
+        target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 500);
+    }
     public override void GetDoFu()
     {
         Debug.Log("DeBuff in DoFu");

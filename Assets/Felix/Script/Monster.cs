@@ -13,11 +13,12 @@ public class Monster : MonoBehaviour
     public Vector3[] patrolPath;
     public float attackRange = 0.5f;
     public float Speed = 1.5f;
+    public float angularSpeed;
     public float attackTime;
     public GameObject destroyObj;
     public Collider alert;
 
-    private enum Type { NONE, Fight, PATROL, DONMOVE, RUNAWAY }
+    private enum Type { NONE, Fight, PATROL, RUNAWAY }
     private Type type;
     private int patrolPoint;
     private float maxAttackTime;
@@ -41,6 +42,9 @@ public class Monster : MonoBehaviour
             case Type.PATROL:
                 StartPatrol();
                 break;
+            case Type.RUNAWAY:
+                Runaway();
+                break;
             default:
                 break;
         }
@@ -51,14 +55,14 @@ public class Monster : MonoBehaviour
         agent.isStopped = false;
         if (target != null)
         {
-            agent.angularSpeed = 160;
+            agent.angularSpeed = angularSpeed * 1.3f;
             agent.speed = Speed * 1.5f;
             animator.SetBool("Walk", false);
             animator.SetBool("Run", true);
         }
         else
         {
-            agent.angularSpeed = 120;
+            agent.angularSpeed = angularSpeed;
             agent.speed = Speed;
             animator.SetBool("Walk", true);
             animator.SetBool("Run", false);
@@ -72,7 +76,7 @@ public class Monster : MonoBehaviour
         animator.SetBool("Run", false);
     }
 
-    private void Fight()
+    public virtual void Fight()
     {
         maxAttackTime += Time.deltaTime;
         if (target != null)
@@ -134,11 +138,10 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void CloseCollider()
+    public virtual void Runaway()
     {
 
     }
-
     public virtual void GetDoFu()
     {
 
