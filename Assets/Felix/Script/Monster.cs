@@ -18,8 +18,8 @@ public class Monster : MonoBehaviour
     public GameObject destroyObj;
     public Collider alert;
 
-    private enum Type { NONE, Fight, PATROL, RUNAWAY }
-    private Type type;
+    public enum Type { NONE, Fight, PATROL, RUNAWAY }
+    public Type type;
     private int patrolPoint;
     private float maxAttackTime;
 
@@ -50,7 +50,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void Move()
+    public void Move()
     {
         agent.isStopped = false;
         if (target != null)
@@ -69,14 +69,14 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void Stop()
+    public void Stop()
     {
         agent.isStopped = true;
         animator.SetBool("Walk", false);
         animator.SetBool("Run", false);
     }
 
-    public virtual void Fight()
+    public void Fight()
     {
         maxAttackTime += Time.deltaTime;
         if (target != null)
@@ -86,16 +86,7 @@ public class Monster : MonoBehaviour
             // 如果能够得着了，就停下攻击
             if (agent.remainingDistance <= attackRange)
             {
-                // 攻擊速度最短時間以動畫長度為主
-                AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
-                if ((maxAttackTime >= attackTime) && (!info.IsName("Attack")))
-                {
-                    Debug.Log("Attack...");
-                    Stop();
-                    animator.SetTrigger("Attack");
-                    SetTarget();
-                    maxAttackTime = 0;
-                }
+                Attack();
             }
             else
             {
@@ -107,6 +98,20 @@ public class Monster : MonoBehaviour
             Stop();
             maxAttackTime = attackTime;
             type = Type.NONE;
+        }
+    }
+
+    public virtual void Attack()
+    {
+        // 攻擊速度最短時間以動畫長度為主
+        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
+        if ((maxAttackTime >= attackTime) && (!info.IsName("Attack")))
+        {
+            Debug.Log("Attack...");
+            Stop();
+            animator.SetTrigger("Attack");
+            SetTarget();
+            maxAttackTime = 0;
         }
     }
 
@@ -140,7 +145,15 @@ public class Monster : MonoBehaviour
 
     public virtual void Runaway()
     {
-
+        if (agent.remainingDistance < 1)
+        {
+            Stop();
+            type = Type.NONE;
+        }
+        else
+        {
+            Move();
+        }
     }
     public virtual void GetDoFu()
     {
@@ -171,11 +184,16 @@ public class Monster : MonoBehaviour
 
     private void SetTarget()
     {
-        if (targets != null)
+        if (targets.Count != 0)
         {
             Random.InitState(System.Guid.NewGuid().GetHashCode());
             int ran = Random.Range(1, targets.Count);
-            target = targets[ran - 1];
+            Debug.Log("SetTarget..." + ran);
+            target = targets[ran % targets.Count];
+        }
+        else
+        {
+            target = null;
         }
     }
 
@@ -184,6 +202,7 @@ public class Monster : MonoBehaviour
         if (other.tag == "Player")
         {
             targets.Add(other.gameObject);
+            Debug.Log("targets.add" + targets.Count);
             if (target == null)
             {
                 Debug.Log("Fight...");
@@ -199,6 +218,10 @@ public class Monster : MonoBehaviour
         if (other.tag == "Player")
         {
             targets.Remove(other.gameObject);
+            if (target == other.gameObject)
+            {
+                SetTarget();
+            }
         }
     }
 

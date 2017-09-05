@@ -68887,7 +68887,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.46666667
-    functionName: Attack
+    functionName: Push
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

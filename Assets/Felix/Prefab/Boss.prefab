@@ -58,7 +58,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1019571696234224
 GameObject:
   m_ObjectHideFlags: 1
@@ -2420,9 +2420,11 @@ MonoBehaviour:
   - {x: -11.88, y: 0.486, z: 42.06}
   attackRange: 2
   Speed: 1
+  angularSpeed: 120
   attackTime: 3
   destroyObj: {fileID: 1018832012823678}
   alert: {fileID: 135913876040021074}
+  type: 0
   deBuff: 7
 --- !u!114 &114597766226310870
 MonoBehaviour:

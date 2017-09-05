@@ -33,7 +33,7 @@ public class Boss : Monster
         base.Update();
     }
 
-    public void Attack()
+    public void Push()
     {
         target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 500);
     }
