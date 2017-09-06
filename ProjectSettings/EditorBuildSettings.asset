@@ -41,3 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Photon Unity Networking/Demos/PunBasics-Tutorial/Scenes/GameScene.unity
     guid: e07afcca5bf1a41f5bd28f498656b7b8
+  - enabled: 0
+    path: Assets/DD/scene/finalGame.unity
+    guid: 6f64d4e099f1fa240858d3c70376090e

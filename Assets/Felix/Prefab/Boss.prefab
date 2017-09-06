@@ -58,7 +58,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1019571696234224
 GameObject:
   m_ObjectHideFlags: 1
@@ -1483,7 +1483,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018832012823678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9, y: 0.486, z: 41.9}
+  m_LocalPosition: {x: -6.22, y: -2.85, z: 37.86}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
   - {fileID: 4069197856376784}
@@ -2416,8 +2416,9 @@ MonoBehaviour:
   target: {fileID: 0}
   agent: {fileID: 195566148073916054}
   patrolPath:
-  - {x: -5.98, y: 0.486, z: 42.06}
-  - {x: -11.88, y: 0.486, z: 42.06}
+  - {x: -10.06, y: 0.486, z: 42.34}
+  - {x: -14, y: 0.486, z: 35.96}
+  - {x: -6.22, y: 0.486, z: 31.02}
   attackRange: 2
   Speed: 1
   angularSpeed: 120

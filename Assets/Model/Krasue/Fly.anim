@@ -61018,4 +61018,12 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.2666667
+    functionName: PlayAttackAudio
+    data: 
+    objectReferenceParameter: {fileID: 100100, guid: 09c1c6296e5b8274ea21a9f0bc97c76f,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
