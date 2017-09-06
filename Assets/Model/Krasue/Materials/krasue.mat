@@ -160,7 +160,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Ambient: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 0.766}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _ColorA: {r: 1, g: 1, b: 1, a: 1}
     - _ColorB: {r: 1, g: 1, b: 1, a: 1}
     - _ColorG: {r: 1, g: 1, b: 1, a: 1}

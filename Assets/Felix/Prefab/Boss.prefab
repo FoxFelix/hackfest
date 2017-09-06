@@ -58,7 +58,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1019571696234224
 GameObject:
   m_ObjectHideFlags: 1
@@ -1483,7 +1483,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018832012823678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.22, y: -2.85, z: 37.86}
+  m_LocalPosition: {x: -4.9, y: 0.486, z: 41.9}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
   - {fileID: 4069197856376784}
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddd8793cbe4448af89ba6cd31f1afd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 10
   animator: {fileID: 95220883847879314}
   target: {fileID: 0}
   agent: {fileID: 195566148073916054}
@@ -2425,6 +2425,10 @@ MonoBehaviour:
   attackTime: 3
   destroyObj: {fileID: 1018832012823678}
   alert: {fileID: 135913876040021074}
+  effect:
+  - {fileID: 114184412109961340, guid: 1cb6424b4160c1e4aa587d98e0e234c5, type: 2}
+  - {fileID: 114097442514765662, guid: 093dd773a875c6246873e878fde917ed, type: 2}
+  - {fileID: 114480775848306302, guid: 0c1550c3c9601764b8bdd9dd296cdabc, type: 2}
   type: 0
   deBuff: 7
 --- !u!114 &114597766226310870

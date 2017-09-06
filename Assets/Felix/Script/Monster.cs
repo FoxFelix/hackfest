@@ -17,6 +17,7 @@ public class Monster : MonoBehaviour
     public float attackTime;
     public GameObject destroyObj;
     public Collider alert;
+    public PsUnit[] effect;
 
     public enum Type { NONE, Fight, PATROL, RUNAWAY }
     public Type type;
@@ -157,12 +158,12 @@ public class Monster : MonoBehaviour
     }
     public virtual void GetDoFu()
     {
-
+        Attacked();
     }
 
     public virtual void GetLiBai()
     {
-
+        Attacked();
     }
 
     public virtual void GetWangWei()
@@ -173,6 +174,7 @@ public class Monster : MonoBehaviour
     private void Attacked()
     {
         HP = HP - 1;
+        Stop();
         animator.SetTrigger("GetHit");
         animator.SetInteger("HP", HP);
     }

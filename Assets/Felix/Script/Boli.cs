@@ -5,14 +5,14 @@ using UnityEngine;
 public class Boli : Monster
 {
     public Transform[] rebirthPoint;
+    public SkinnedMeshRenderer skim;
     public override void Update()
     {
-        AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
-        if (info.IsName("BeAttacked"))
+        if (target != null)
         {
-            Debug.Log("BeAttacked...");
-            Stop();
-            return;
+            float distance = Vector3.Distance(target.transform.position, transform.position);
+            float look = 1.0f - Mathf.Clamp((distance / 6f), 0.1f, 1f);
+            skim.material.color = new Color(1, 1, 1, look);
         }
 
         base.Update();
@@ -43,35 +43,40 @@ public class Boli : Monster
 
     public override void GetDoFu()
     {
-        Debug.Log("DeBuff in DoFu");
+        /* Debug.Log("DeBuff in DoFu");
         StopCoroutine("Display");
-        StartCoroutine("Display");
+        StartCoroutine("Display"); */
+        ParticleManager.GenerateParticle(effect[0], transform);
+        base.GetDoFu();
     }
 
-    private IEnumerator Display()
+    /* private IEnumerator Display()
     {
         // 現形
         yield return new WaitForSeconds(2);
         // 隱形
-    }
+    } */
 
     public override void GetLiBai()
     {
-        Debug.Log("DeBuff in Li_Bai");
+        /* Debug.Log("DeBuff in Li_Bai");
         StopCoroutine("FixedBody");
         animator.SetBool("FixedBody", true);
-        StartCoroutine("FixedBody");
+        StartCoroutine("FixedBody"); */
+        ParticleManager.GenerateParticle(effect[1], transform);
+        base.GetDoFu();
     }
 
-    private IEnumerator FixedBody()
+    /* private IEnumerator FixedBody()
     {
         yield return new WaitForSeconds(3);
         animator.SetBool("FixedBody", false);
-    }
+    } */
 
     public override void GetWangWei()
     {
-        Debug.Log("DeBuff in Wang_Wei");
-        base.GetWangWei();
+        /* å */
+        ParticleManager.GenerateParticle(effect[0], transform);
+        base.GetDoFu();
     }
 }

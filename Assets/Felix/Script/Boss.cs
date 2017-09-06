@@ -39,7 +39,7 @@ public class Boss : Monster
     }
     public override void GetDoFu()
     {
-        Debug.Log("DeBuff in DoFu");
+        /* Debug.Log("DeBuff in DoFu");
         if ((deBuff == DeBuff.NONE) || (deBuff == DeBuff.DOFU))
         {
             deBuff |= DeBuff.DOFU;
@@ -49,12 +49,14 @@ public class Boss : Monster
         {
             Debug.Log("播放「弱」-失敗");
             deBuff = DeBuff.NONE;
-        }
+        } */
+        ParticleManager.GenerateParticle(effect[0], transform);
+        base.GetDoFu();
     }
 
     public override void GetLiBai()
     {
-        Debug.Log("DeBuff in LiBai");
+        /* Debug.Log("DeBuff in LiBai");
         if (deBuff == DeBuff.DOFU)
         {
             deBuff |= DeBuff.LIBAI;
@@ -64,12 +66,14 @@ public class Boss : Monster
         {
             Debug.Log("播放「縛」-失敗");
             deBuff = DeBuff.NONE;
-        }
+        } */
+        ParticleManager.GenerateParticle(effect[1], transform);
+        base.GetDoFu();
     }
 
     public override void GetWangWei()
     {
-        Debug.Log("DeBuff in WangWei");
+        /* Debug.Log("DeBuff in WangWei");
         deBuff |= DeBuff.DOFU;
         deBuff |= DeBuff.LIBAI;
         if (deBuff == DeBuff.BREAKOUT)
@@ -86,6 +90,8 @@ public class Boss : Monster
         {
             Debug.Log("播放「收」-失敗");
             deBuff = DeBuff.NONE;
-        }
+        } */
+        ParticleManager.GenerateParticle(effect[2], transform);
+        base.GetDoFu();
     }
 }
