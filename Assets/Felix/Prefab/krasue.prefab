@@ -961,8 +961,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1854327009093900}
-  m_LocalRotation: {x: -0, y: -0.97991323, z: -0, w: 0.19942448}
-  m_LocalPosition: {x: -6.5187435, y: 0.6752051, z: 13.799959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.63, y: 0.454, z: 30.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4772245341716722}
@@ -1651,9 +1651,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioHead: {fileID: 82957205480547146}
-  IdleSound: {fileID: 8300000, guid: 878aa68d0e151c6408a1d595d2767964, type: 3}
-  AttackSound: {fileID: 8300000, guid: 04990f792135b774cb015cf428639e2c, type: 3}
-  DamageSound: {fileID: 8300000, guid: ba6ffd1eb9f94e04c859be4ed89b6bf2, type: 3}
+  IdleSound: {fileID: 8300000, guid: b4f29ccccdb8ce54d9cea85d7ddbade4, type: 3}
+  AttackSound: {fileID: 8300000, guid: f1d57e2cae9af514b9ef58c90b631aa3, type: 3}
+  DamageSound: {fileID: 8300000, guid: e6bfa129acc81104fa8db8fb4b27f7dd, type: 3}
 --- !u!114 &114045344707523180
 MonoBehaviour:
   m_ObjectHideFlags: 1

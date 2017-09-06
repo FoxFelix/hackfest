@@ -10,6 +10,7 @@ public class attack_liBai : MonoBehaviour
     bool triggerPressed;
     public Transform handPointer;
     bool readyToShoot = true;
+    bool canShoot = true;
     bool firstTime = true;
 
     bool throwInProcess = false;
@@ -190,23 +191,31 @@ public class attack_liBai : MonoBehaviour
     
     void attack()
     {
-        if (firstTime == true)
+        if (firstTime == true && canShoot == true)
         {
             pv.RPC("fxAttackLiBai", PhotonTargets.All);
             firstTime = false;
+            canShoot = false;
+            Invoke("resetCanShoot", 3);
         }
 
-        RaycastHit hit;
-        if (Physics.Raycast(handPointer.position, handPointer.forward, out hit, 10f))
-        {
-            if (hit.transform.gameObject.layer == 10 && readyToShoot == true)
-            {
-                pv.RPC("fxAttackLiBai", PhotonTargets.All);
-                readyToShoot = false;
-            }
-        }
+        //RaycastHit hit;
+        //if (Physics.Raycast(handPointer.position, handPointer.forward, out hit, 10f))
+        //{
+        //    if (hit.transform.gameObject.layer == 10 && readyToShoot == true && canShoot == true)
+        //    {
+        //        pv.RPC("fxAttackLiBai", PhotonTargets.All);
+        //        readyToShoot = false;
+        //        canShoot = false;
+        //        Invoke("resetCanShoot", 3);
+        //    }
+        //}
     }
 
+    void resetCanShoot()
+    {
+        canShoot = true;
+    }
 
 
     void localMotion(EasyInputVR.Core.Motion motion)
