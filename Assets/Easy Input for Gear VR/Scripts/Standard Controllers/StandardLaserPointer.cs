@@ -23,7 +23,7 @@ namespace EasyInputVR.StandardControllers
         public LayerMask layersToCheck;
 
         GameObject laserPointer;
-        LineRenderer line;
+        //LineRenderer line;
         RaycastHit rayHit;
         Vector3 end;
         Vector3 offsetPosition;
@@ -53,8 +53,8 @@ namespace EasyInputVR.StandardControllers
                 initialReticleSize = reticle.transform.localScale;
             }
 
-            line = laserPointer.AddComponent<LineRenderer>();
-            line.material = laserMaterial;
+            //line = laserPointer.AddComponent<LineRenderer>();
+            //line.material = laserMaterial;
 #if UNITY_5_3 || UNITY_5_4
             line.SetWidth(0.01f, 0.01f);
             line.SetVertexCount(2);
@@ -68,11 +68,11 @@ namespace EasyInputVR.StandardControllers
             line.numPositions = 2;
 #endif
 #if !(UNITY_5_3 || UNITY_5_4 || UNITY_5_5)
-            line.startColor = laserStartColor;
-            line.endColor = laserEndColor;
-            line.startWidth = .01f;
-            line.endWidth = .01f;
-            line.positionCount = 2;
+            //line.startColor = laserStartColor;
+            //line.endColor = laserEndColor;
+            //line.startWidth = .01f;
+            //line.endWidth = .01f;
+            //line.positionCount = 2;
 #endif
 
             if (laserPointer.transform.parent == null)
@@ -104,19 +104,19 @@ namespace EasyInputVR.StandardControllers
 
             if (motion.currentPos != Vector3.zero)
             {
-                line.enabled = true;
+                //line.enabled = true;
             }
             else
             {
                 //not valid so disable and don't bother with the raycast so return
-                line.enabled = false;
+                //line.enabled = false;
                 return;
             }
 
             end = EasyInputConstants.NOT_VALID;
 
             //origin
-            line.SetPosition(0, laserPointer.transform.position);
+            //line.SetPosition(0, laserPointer.transform.position);
 
             
             if (colliderRaycast && Physics.Raycast(laserPointer.transform.position, laserPointer.transform.forward, out rayHit, reticleDistance, layersToCheck))
@@ -159,11 +159,11 @@ namespace EasyInputVR.StandardControllers
 
                 if ((end - laserPointer.transform.position).magnitude < laserDistance)
                 {
-                    line.SetPosition(1, end);
+                    //line.SetPosition(1, end);
                 }
                 else
                 {
-                    line.SetPosition(1, laserPointer.transform.position + laserPointer.transform.forward * laserDistance);
+                    //line.SetPosition(1, laserPointer.transform.position + laserPointer.transform.forward * laserDistance);
                 }
 
             }
@@ -188,7 +188,7 @@ namespace EasyInputVR.StandardControllers
                 }
 
 
-                line.SetPosition(1, laserPointer.transform.position + laserPointer.transform.forward * laserDistance);
+                //line.SetPosition(1, laserPointer.transform.position + laserPointer.transform.forward * laserDistance);
 
             }
 

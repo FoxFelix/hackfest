@@ -5,7 +5,6 @@ using UnityEngine;
 public class fxManager : MonoBehaviour {
 
     PhotonView pv;
-    public GameObject liBaiAttackPrefab;
     public Transform bulletSpawnPoint;
     public PsUnit liBaiAttackEffect;
 
@@ -29,12 +28,12 @@ public class fxManager : MonoBehaviour {
         print("attack");
     }
 
-    [PunRPC]
-    public void fxThrow(float force)
-    {
-        GameObject thrownObject = GameObject.Instantiate(liBaiAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        var rb = thrownObject.GetComponent<Rigidbody>();
-        rb.AddForce(bulletSpawnPoint.forward * force, ForceMode.Impulse);
-        print("throw");
-    }
+    //[PunRPC]
+    //public void fxThrow(float force)
+    //{
+    //    GameObject thrownObject = GameObject.Instantiate(liBaiAttackPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+    //    var rb = thrownObject.GetComponent<Rigidbody>();
+    //    rb.AddForce(bulletSpawnPoint.forward * force, ForceMode.Impulse);
+    //    print("throw");
+    //}
 }

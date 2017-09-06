@@ -141,7 +141,7 @@ PlayerSettings:
   targetPixelDensity: 0
   resolutionScalingMode: 0
   applicationIdentifier:
-    Android: ohwhatif.com.OhWHATif.gearVR
+    Android: ohwhatif.com.OhWHATif.BXM
     Standalone: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 22

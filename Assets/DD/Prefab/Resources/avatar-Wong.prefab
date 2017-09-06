@@ -972,7 +972,6 @@ GameObject:
   - component: {fileID: 114194732666208026}
   - component: {fileID: 114622234473898416}
   - component: {fileID: 114922550886273216}
-  - component: {fileID: 136313113249766348}
   - component: {fileID: 82270570227506422}
   - component: {fileID: 114533243938212988}
   m_Layer: 0
@@ -1121,6 +1120,7 @@ GameObject:
   - component: {fileID: 114490204231526846}
   - component: {fileID: 114714812177248826}
   - component: {fileID: 114691169799702470}
+  - component: {fileID: 136688634473248742}
   m_Layer: 8
   m_Name: avatar-Wong
   m_TagString: Player
@@ -3712,8 +3712,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e6046ebe97446418cc0308815e1f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liBaiAttackPrefab: {fileID: 1364329066940538, guid: 765aedb0aa69b894ba073612cf4ae8e6,
-    type: 2}
   bulletSpawnPoint: {fileID: 4013246237879946}
   liBaiAttackEffect: {fileID: 114288098689938768, guid: 3fc7ab62fbbfc594eb665eeee6968ce8,
     type: 2}
@@ -3813,12 +3811,12 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158747462331868}
   m_Enabled: 1
---- !u!136 &136313113249766348
+--- !u!136 &136688634473248742
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1770570011470760}
+  m_GameObject: {fileID: 1828630631803902}
   m_Material: {fileID: 13400000, guid: 9fea306c83f100f4a92a745992199a2f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1

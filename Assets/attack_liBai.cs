@@ -50,42 +50,42 @@ public class attack_liBai : MonoBehaviour
     }
 
 
-    void initiateThrow(ButtonClick click)
-    {
-        if (click.button == EasyInputConstants.CONTROLLER_BUTTON.GearVRTrigger && !preventThrowAgain)
-        {
-            //reset the motion variables
-            EasyInputHelper.resetMotion();
-            throwInProcess = true;
-            //follow.stopFollow();
-        }
-    }
+    //void initiateThrow(ButtonClick click)
+    //{
+    //    if (click.button == EasyInputConstants.CONTROLLER_BUTTON.GearVRTrigger && !preventThrowAgain)
+    //    {
+    //        //reset the motion variables
+    //        EasyInputHelper.resetMotion();
+    //        throwInProcess = true;
+    //        //follow.stopFollow();
+    //    }
+    //}
 
-    void endThrow(ButtonClick click)
-    {
-        if (click.button == EasyInputConstants.CONTROLLER_BUTTON.GearVRTrigger && !preventThrowAgain)
-        {
+    //void endThrow(ButtonClick click)
+    //{
+    //    if (click.button == EasyInputConstants.CONTROLLER_BUTTON.GearVRTrigger && !preventThrowAgain)
+    //    {
 
-            //reset the motion variables
-            EasyInputHelper.resetMotion();
-            throwInProcess = false;
-            //preventThrowAgain = true;
-            //temp = transform.position;
-            //temp.y = .5f;
-            //transform.position = temp;
+    //        //reset the motion variables
+    //        EasyInputHelper.resetMotion();
+    //        throwInProcess = false;
+    //        //preventThrowAgain = true;
+    //        //temp = transform.position;
+    //        //temp.y = .5f;
+    //        //transform.position = temp;
 
-            //here we do the throw after some sanity checks
-            throwThings(currentThrowForce);
+    //        //here we do the throw after some sanity checks
+    //        throwThings(currentThrowForce);
             
-            //the sudden drop of the ball makes it want to bounce off the alley prevent this in the rigidbody
-            //temp = throwObjectRigidBody.velocity;
-            //temp.y = 0f;
-            //throwObjectRigidBody.velocity = temp;
+    //        //the sudden drop of the ball makes it want to bounce off the alley prevent this in the rigidbody
+    //        //temp = throwObjectRigidBody.velocity;
+    //        //temp.y = 0f;
+    //        //throwObjectRigidBody.velocity = temp;
 
-            //start clock to reset the scene
-            //Invoke("resetScene", 8f);
-        }
-    }
+    //        //start clock to reset the scene
+    //        //Invoke("resetScene", 8f);
+    //    }
+    //}
 
     void throwThings(float force)
     {

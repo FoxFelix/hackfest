@@ -581,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1491098652741232
 GameObject:
   m_ObjectHideFlags: 1
@@ -3046,8 +3046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e6046ebe97446418cc0308815e1f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liBaiAttackPrefab: {fileID: 1364329066940538, guid: 765aedb0aa69b894ba073612cf4ae8e6,
-    type: 2}
   bulletSpawnPoint: {fileID: 4165531813029124}
   liBaiAttackEffect: {fileID: 114059790423688094, guid: 5d56992167da5704ea7b9565b4cb9aa0,
     type: 2}
