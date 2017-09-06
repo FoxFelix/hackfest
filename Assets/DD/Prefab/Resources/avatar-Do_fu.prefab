@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 114958358292286462}
   - component: {fileID: 114800656728553948}
   - component: {fileID: 114088496601873124}
+  - component: {fileID: 136459073105155252}
   m_Layer: 8
   m_Name: avatar-Do_fu
   m_TagString: Player
@@ -1201,7 +1202,6 @@ GameObject:
   - component: {fileID: 114378052553509766}
   - component: {fileID: 114924639308633886}
   - component: {fileID: 114239423555209718}
-  - component: {fileID: 136461031818210408}
   - component: {fileID: 114918875911194646}
   - component: {fileID: 114358681797382416}
   - component: {fileID: 82291987133447054}
@@ -1836,8 +1836,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1773762683541870}
   m_LocalRotation: {x: 0, y: -0.6427876, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 0.018, y: 0.025, z: 0.304}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalPosition: {x: 0.034, y: 0.025, z: 0.391}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_Children:
   - {fileID: 4301081473349220}
   - {fileID: 4788611897484576}
@@ -2172,13 +2172,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1300844133206010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.36, y: -0, z: -0}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 1.5, y: -0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4509030316472340}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!4 &4796522779314234
 Transform:
   m_ObjectHideFlags: 1
@@ -3672,8 +3672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e6046ebe97446418cc0308815e1f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liBaiAttackPrefab: {fileID: 1364329066940538, guid: 765aedb0aa69b894ba073612cf4ae8e6,
-    type: 2}
   bulletSpawnPoint: {fileID: 0}
   liBaiAttackEffect: {fileID: 0}
 --- !u!114 &114896328942915076
@@ -3768,12 +3766,12 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1929694475134250}
   m_Enabled: 1
---- !u!136 &136461031818210408
+--- !u!136 &136459073105155252
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1922987157530678}
+  m_GameObject: {fileID: 1442051037479760}
   m_Material: {fileID: 13400000, guid: 9fea306c83f100f4a92a745992199a2f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
