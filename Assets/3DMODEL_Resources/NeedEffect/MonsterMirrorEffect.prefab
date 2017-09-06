@@ -97,9 +97,10 @@ GameObject:
   m_Component:
   - component: {fileID: 439190}
   - component: {fileID: 11493832}
-  m_Layer: 0
+  - component: {fileID: 65485846488663532}
+  m_Layer: 8
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Wang_Wei
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,6 +634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bcd4d4aef247d48915d2aa7cc7bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967035
   RaycastDistance: 100
   Effects:
   - {fileID: 161520, guid: 6eb8bfabf8e3b0b468999c810d5f2096, type: 2}
@@ -719,7 +723,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1836957414
+  randomSeed: -222853376
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3981,7 +3985,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 0
+  randomSeed: -592060041
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7233,6 +7237,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196096}
   m_IsPrefabParent: 1
+--- !u!65 &65485846488663532
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 20}
+  m_Center: {x: 0, y: 0, z: 10}
 --- !u!114 &114288098689938768
 MonoBehaviour:
   m_ObjectHideFlags: 1

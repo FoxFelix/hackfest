@@ -11,6 +11,7 @@ TagManager:
   - Do_Fu
   - Li_Bai
   - Wang_Wei
+  - Enemy
   layers:
   - Default
   - TransparentFX

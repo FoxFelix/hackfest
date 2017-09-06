@@ -11,6 +11,7 @@ public class Boss_audioPlayer : MonoBehaviour {
     public AudioClip AttackSound;
     public AudioClip FootStepSound;
     public AudioClip DamageSound;
+    public AudioClip ShoutSound;
 
     public void BossPlayFootStep()
     {
@@ -56,5 +57,11 @@ public class Boss_audioPlayer : MonoBehaviour {
         audioHead.PlayOneShot(DamageSound);
     }
 
+    public void BossPlayShoutSound()
+    {
+        if (audioHead.isPlaying)
+            audioHead.Stop();
+        audioHead.PlayOneShot(ShoutSound);
+    }
 
 }

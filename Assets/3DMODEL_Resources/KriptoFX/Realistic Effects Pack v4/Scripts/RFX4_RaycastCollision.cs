@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class RFX4_RaycastCollision : MonoBehaviour
 {
+    public LayerMask layer;
     public float RaycastDistance = 100;
     public GameObject[] Effects;
     public float Offset = 0;
@@ -72,7 +73,14 @@ public class RFX4_RaycastCollision : MonoBehaviour
     {
        
         RaycastHit raycastHit;
-        if (Physics.Raycast(transform.position, transform.forward, out raycastHit, RaycastDistance)) {
+        if (Physics.Raycast(transform.position, transform.forward, out raycastHit, RaycastDistance, layer)) {
+            if (raycastHit.collider.isTrigger)
+            {
+                if (raycastHit.collider.tag == "Enemy")
+                {
+                    raycastHit.collider.gameObject.SendMessage("GetWangWei"); 
+                }
+            }
             Vector3 position;
             if (UsePivotPosition)
                 position = raycastHit.transform.position;

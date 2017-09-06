@@ -30,7 +30,10 @@ public class Boss : Monster
             body.enabled = true;
             alert.enabled = true;
         }
-        base.Update();
+        if (PhotonNetwork.isMasterClient)
+        {
+            base.Update();
+        }
     }
 
     public void Push()

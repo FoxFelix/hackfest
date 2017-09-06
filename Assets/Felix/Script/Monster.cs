@@ -35,19 +35,22 @@ public class Monster : MonoBehaviour
 
     public virtual void Update()
     {
-        switch (type)
+        if (PhotonNetwork.isMasterClient)
         {
-            case Type.Fight:
-                Fight();
-                break;
-            case Type.PATROL:
-                StartPatrol();
-                break;
-            case Type.RUNAWAY:
-                Runaway();
-                break;
-            default:
-                break;
+            switch (type)
+            {
+                case Type.Fight:
+                    Fight();
+                    break;
+                case Type.PATROL:
+                    StartPatrol();
+                    break;
+                case Type.RUNAWAY:
+                    Runaway();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

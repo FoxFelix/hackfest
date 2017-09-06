@@ -78263,10 +78263,19 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 2.2666667
+  - time: 0.13333334
+    functionName: PlayDamageAudio
+    data: 
+    objectReferenceParameter: {fileID: 100100, guid: 09c1c6296e5b8274ea21a9f0bc97c76f,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.2333333
     functionName: CallDestroy
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 100100, guid: 09c1c6296e5b8274ea21a9f0bc97c76f,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

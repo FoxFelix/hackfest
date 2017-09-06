@@ -54,11 +54,11 @@ GameObject:
   - component: {fileID: 114393289748006400}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1019571696234224
 GameObject:
   m_ObjectHideFlags: 1
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 4893789382571078}
   - component: {fileID: 135913876040021074}
   - component: {fileID: 114597766226310870}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Alert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 114651409103007866}
   m_Layer: 10
   m_Name: Minotaur
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1482,8 +1482,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018832012823678}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9, y: 0.486, z: 41.9}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.22, y: -2.85, z: 37.86}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
   - {fileID: 4069197856376784}
@@ -2461,6 +2461,7 @@ MonoBehaviour:
   AttackSound: {fileID: 8300000, guid: 9e756e7ba56e1ed408a7a134c0a2a33a, type: 3}
   FootStepSound: {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   DamageSound: {fileID: 8300000, guid: 9fb7da2b8ff58254a80f225abc36da4b, type: 3}
+  ShoutSound: {fileID: 8300000, guid: 305cb04d608d2ae41b69e899fcd139dd, type: 3}
 --- !u!114 &114747515026733908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2482,7 +2483,6 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 114050237967524080}
-  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

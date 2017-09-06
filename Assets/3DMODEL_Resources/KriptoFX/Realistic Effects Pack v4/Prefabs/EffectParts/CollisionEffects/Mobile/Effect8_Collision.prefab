@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 54119231826947912}
   m_Layer: 0
   m_Name: Effect8_Collision
-  m_TagString: Magic
+  m_TagString: Wang_Wei
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

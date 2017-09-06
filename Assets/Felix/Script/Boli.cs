@@ -14,8 +14,10 @@ public class Boli : Monster
             float look = 1.0f - Mathf.Clamp((distance / 6f), 0.1f, 1f);
             skim.material.color = new Color(1, 1, 1, look);
         }
-
-        base.Update();
+        if (PhotonNetwork.isMasterClient)
+        {
+            base.Update();
+        }
     }
 
     public override void Attack()
