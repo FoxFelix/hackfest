@@ -21,6 +21,7 @@ public class walkingScript : MonoBehaviour
     Vector3 actionVectorPosition;
     Vector3 computerVector;
     public Transform mesh;
+    float forwardVar;
 
     void OnEnable()
     {
@@ -64,18 +65,13 @@ public class walkingScript : MonoBehaviour
 
             if (gasPressed || Input.GetKey(KeyCode.Space))
             {
-                rb.AddForce(directionTransform.forward * speed);
-                walkSideways(myOrientation);
+                //rb.AddForce(directionTransform.forward * speed);
+                walk(myOrientation);
             }
         }
     }
 
-    void walk()
-    {
-
-    }
-
-    public void walkSideways(Vector3 myOrientation)
+    public void walk(Vector3 myOrientation)
     {
 
 
@@ -86,14 +82,17 @@ public class walkingScript : MonoBehaviour
             //get into a -180 to 180 range
             horizontal = (horizontal > 180f) ? (horizontal - 360f) : horizontal;
             horizontal = horizontal / normalizeDegrees;
+            forwardVar = Mathf.Clamp(1 - Mathf.Abs(horizontal), 0, 1);
             horizontal *= -sensitivity;
+            if (forwardVar > 0.5f)
+                rb.AddForce(directionTransform.forward * speed);
+            if (forwardVar < 0.7f)
+                rb.AddForce(directionTransform.right * horizontal * speed *0.85f);
         }
         else
         {
             horizontal = 0f;
         }
-
-        rb.AddForce(directionTransform.right * horizontal * 200);
     }
 
     void localMotion(EasyInputVR.Core.Motion motion)

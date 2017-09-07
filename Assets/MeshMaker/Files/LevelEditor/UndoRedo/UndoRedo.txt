@@ -1,1 +1,0 @@
-This folder is the default repository for undo/redo saves created with Level Editor. This text file is a placeholder for the empty folder.

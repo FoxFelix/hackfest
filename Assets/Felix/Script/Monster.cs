@@ -18,6 +18,7 @@ public class Monster : MonoBehaviour
     public GameObject destroyObj;
     public Collider alert;
     public PsUnit[] effect;
+    bool canBeHurt = true;
 
     public enum Type { NONE, Fight, PATROL, RUNAWAY }
     public Type type;
@@ -184,6 +185,7 @@ public class Monster : MonoBehaviour
 
     public void CallDestroy()
     {
+        Stop();
         Destroy(destroyObj, 5);
     }
 
@@ -233,18 +235,30 @@ public class Monster : MonoBehaviour
     public void OnTriggerEvent(Collider other)
     {
         Stop();
-        if (other.tag == "Do_Fu")
+        if (other.tag == "Do_Fu" && canBeHurt == true)
         {
             GetDoFu();
+            canBeHurt = false;
+            Invoke("resetCanBeHurt", 1);
         }
-        else if (other.tag == "Li_Bai")
+        else if (other.tag == "Li_Bai" && canBeHurt == true)
         {
             GetLiBai();
+            canBeHurt = false;
+            Invoke("resetCanBeHurt", 1);
         }
-        else if (other.tag == "Wang_Wei")
+        else if (other.tag == "Wang_Wei" && canBeHurt == true)
         {
             GetWangWei();
+            canBeHurt = false;
+            Invoke("resetCanBeHurt", 1);
         }
+
+    }
+
+    void resetCanBeHurt()
+    {
+        canBeHurt = true;
     }
 
     void OnTriggerEnter(Collider other)

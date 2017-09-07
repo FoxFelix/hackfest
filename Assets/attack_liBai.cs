@@ -196,7 +196,7 @@ public class attack_liBai : MonoBehaviour
             pv.RPC("fxAttackLiBai", PhotonTargets.All);
             firstTime = false;
             canShoot = false;
-            Invoke("resetCanShoot", 3);
+            Invoke("resetCanShoot", 2.2f);
         }
 
         //RaycastHit hit;
