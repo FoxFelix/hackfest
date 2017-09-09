@@ -1721,9 +1721,9 @@ MonoBehaviour:
   destroyObj: {fileID: 1854327009093900}
   alert: {fileID: 135233627536294994}
   effect:
-  - {fileID: 114599411379091014, guid: 6d66b4bdb0ccdf449b9b005698868802, type: 2}
-  - {fileID: 114097442514765662, guid: 093dd773a875c6246873e878fde917ed, type: 2}
   - {fileID: 114480775848306302, guid: 0c1550c3c9601764b8bdd9dd296cdabc, type: 2}
+  - {fileID: 114097442514765662, guid: 093dd773a875c6246873e878fde917ed, type: 2}
+  - {fileID: 114599411379091014, guid: 6d66b4bdb0ccdf449b9b005698868802, type: 2}
   type: 1
   rebirthPoint:
   - {fileID: 0}
@@ -1743,7 +1743,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
+    InterpolateOption: 4
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
     InterpolateMoveTowardsAcceleration: 2

@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 439190}
   - component: {fileID: 11493832}
   - component: {fileID: 65485846488663532}
+  - component: {fileID: 54816646716299556}
   m_Layer: 8
   m_Name: Collision
   m_TagString: Wang_Wei
@@ -3985,7 +3986,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -592060041
+  randomSeed: 1637119808
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7237,6 +7238,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196096}
   m_IsPrefabParent: 1
+--- !u!54 &54816646716299556
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185484}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65485846488663532
 BoxCollider:
   m_ObjectHideFlags: 1
