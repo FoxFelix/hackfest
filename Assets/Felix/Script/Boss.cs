@@ -19,7 +19,7 @@ public class Boss : Monster
     {
         Collider body = GetComponent<Collider>();
         AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
-        if ((info.IsName("GetHit")) || (info.IsName("Shout")) || (info.IsName("Death1")))
+        if ((info.IsName("Get_Hit")) || (info.IsName("Shout")) || (info.IsName("Death1")))
         {
             body.enabled = false;
             alert.enabled = false;

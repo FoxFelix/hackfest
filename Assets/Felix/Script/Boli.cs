@@ -8,12 +8,21 @@ public class Boli : Monster
     public SkinnedMeshRenderer skim;
     public override void Update()
     {
+        Collider body = GetComponent<Collider>();
+        if (HP <= 0)
+        {
+            body.enabled = false;
+            alert.enabled = false;
+            return;
+        }
+
         if (target != null)
         {
             float distance = Vector3.Distance(target.transform.position, transform.position);
             float look = 1.0f - Mathf.Clamp((distance / 6f), 0.1f, 1f);
             skim.material.color = new Color(1, 1, 1, look);
         }
+
         if (PhotonNetwork.isMasterClient)
         {
             base.Update();
@@ -77,7 +86,6 @@ public class Boli : Monster
 
     public override void GetWangWei()
     {
-        /* å */
         ParticleManager.GenerateParticle(effect[0], transform);
         base.GetDoFu();
     }
